@@ -30,4 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  mailers:
+    user_mailer:
+      password_reset:
+        subject: "Password Reset"
