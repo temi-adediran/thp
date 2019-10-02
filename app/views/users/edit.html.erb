@@ -1,2 +1,34 @@
 <h1>User Profile page</h1>
 
+<h5>Change Password</h5>
+
+<%= form_for(@password_form, url: update_password_path, method: :post) do |f| %>
+  <% if @password_form.errors.any? %>
+    <div class="error-messages">
+      <ul>
+        <% @password_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :original_password, "Old password" %>
+    <%= f.password_field :original_password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :new_password, "New password" %>
+    <%= f.password_field :new_password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :new_password_confirmation, "Confirm new password" %>
+    <%= f.password_field :new_password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update password" %>
+  </div>
+<% end %>

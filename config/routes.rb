@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get "logout", to: "sessions#destroy", as: "logout"
   get "forgot_password", to: "password_resets#new", as: "forgot_password"
   get "reset_password", to: "password_resets#edit", as:"reset_password"
+  post "update_password", to: "users#update_password"
 end
