@@ -1,10 +1,13 @@
 class PasswordResetsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
 
+  def new
+  end
+
   def create
     user = User.find_by_email(params[:email])
-    if user
-      user.send_password_token
+    if user.present?
+      user.send_password_token!
       redirect_to root_path, notice: "Email has been sent with password instructions"
     else
       render :new, alert: "Email address does not exist!"
@@ -20,7 +23,7 @@ class PasswordResetsController < ApplicationController
     elsif @user.update_attributes!(password_params)
       redirect_to root_path, notice: "Password has been reset successfully"
     else
-      render :edit
+      render :edit, "Password reset was not successful. Pls try again!"
     end
   end
 

@@ -2,7 +2,7 @@
 
 <h5>Change Password</h5>
 
-<%= form_for(@password_form, url: update_password_path, method: :post) do |f| %>
+<%= form_for(@password_form, url: change_password_path, method: :post) do |f| %>
   <% if @password_form.errors.any? %>
     <div class="error-messages">
       <ul>

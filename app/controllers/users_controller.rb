@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
-  before_action :set_password_form, only: [:edit, :update_password]
 
   def new
     @user = User.new
-  end
-
-  def edit
   end
 
   def create
@@ -20,6 +16,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @password_form = ChangePasswordForm.new(current_user, {})
+  end
+
   def update
     if @user.update(user_params)
       redirect_to @user, notice: 'Profile was successfully updated.'
@@ -28,7 +28,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def update_password
+  def change_password
+    @password_form = ChangePasswordForm.new(current_user, password_params)
     if @password_form.save!
       redirect_to root_path, notice: "Password was updated successfully"
     else
@@ -40,10 +41,6 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end
-
-  def set_password_form
-    @password_form = ChangePasswordForm.new(current_user, password_params)
   end
 
   def user_params
