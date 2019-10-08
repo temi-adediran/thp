@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "User was successfully created"
+      redirect_to root_path, notice: t("controllers.users.create.notice")
     else
       render :new
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'Profile was successfully updated.'
+      redirect_to root_path, notice: t("controllers.users.update.notice")
     else
       render :edit
     end
@@ -31,9 +31,9 @@ class UsersController < ApplicationController
   def change_password
     @password_form = ChangePasswordForm.new(current_user, password_params)
     if @password_form.save!
-      redirect_to root_path, notice: "Password was updated successfully"
+      redirect_to root_path, notice: t("controllers.users.change_password.notice")
     else
-      render :edit, alert: "Password was not updated."
+      render :edit, alert: t("controllers.users.change_password.alert")
     end
   end
 
@@ -48,6 +48,10 @@ class UsersController < ApplicationController
   end
 
   def password_params
-    params.require(:change_password_form).permit(:original_password, :new_password, :new_password_confirmation)
+    params.require(:change_password_form).permit(
+      :original_password,
+      :new_password,
+      :new_password_confirmation
+    )
   end
 end

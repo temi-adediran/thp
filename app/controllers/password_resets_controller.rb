@@ -8,9 +8,9 @@ class PasswordResetsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user.present?
       user.send_password_token!
-      redirect_to root_path, notice: "Email has been sent with password instructions"
+      redirect_to root_path, notice: t("controllers.password_reset.create.notice")
     else
-      flash.now[:alert] = "Email address does not exist!"
+      flash.now[:alert] = t("controllers.password_reset.create.alert")
       render :new
     end
   end
@@ -20,11 +20,11 @@ class PasswordResetsController < ApplicationController
 
   def update
     if  @user.password_token_invalid?
-      redirect_to new_password_reset_path, alert: "Password token has expired"
+      redirect_to new_password_reset_path, alert: t("controllers.password_reset.update.alert_expired")
     elsif @user.update_attributes!(password_params)
-      redirect_to root_path, notice: "Password has been reset successfully"
+      redirect_to root_path, notice: t("controllers.password_reset.update.notice")
     else
-      flash.now[:alert] = "Password reset was not successful. Pls try again!"
+      flash.now[:alert] = t("controllers.password_reset.update.alert")
       render :edit
     end
   end

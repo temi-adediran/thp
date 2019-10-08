@@ -1,12 +1,27 @@
 en:
   controllers:
     users:
+      create:
+        notice: "User was successfully created"
+      update:
+        notice: "Profile was successfully updated."
+      change_password:
+        notice: "Password was updated successfully"
+        alert: "Password was not updated."
     sessions:
       create:
         notice: "Logged in!"
         alert: "Email or password is invalid"
       destroy:
         notice: "Logged out!"
+    password_reset:
+      create:
+        notice: "Email has been sent with password instructions"
+        alert: "Email address does not exist!"
+      update:
+        alert_expired: "Password token has expired"
+        alert: "Password reset was not successful. Pls try again!"
+        notice: "Password has been reset successfully"
 
   mailers:
     user_mailer:
