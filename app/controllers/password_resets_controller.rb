@@ -10,7 +10,8 @@ class PasswordResetsController < ApplicationController
       user.send_password_token!
       redirect_to root_path, notice: "Email has been sent with password instructions"
     else
-      render :new, alert: "Email address does not exist!"
+      flash.now[:alert] = "Email address does not exist!"
+      render :new
     end
   end
 
@@ -23,7 +24,8 @@ class PasswordResetsController < ApplicationController
     elsif @user.update_attributes!(password_params)
       redirect_to root_path, notice: "Password has been reset successfully"
     else
-      render :edit, "Password reset was not successful. Pls try again!"
+      flash.now[:alert] = "Password reset was not successful. Pls try again!"
+      render :edit
     end
   end
 

@@ -4,11 +4,7 @@ RSpec.describe 'User', type: :feature do
   let(:user) { create(:user) }
 
   scenario 'change password' do
-    visit login_path
-    fill_in("email", with: user.email)
-    fill_in("password", with: user.password)
-    click_on("Login")
-
+    sign_in_user(user)
     expect(page).to have_content("Change password")
 
     click_link("Change password")
