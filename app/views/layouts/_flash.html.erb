@@ -1,0 +1,5 @@
+<% flash.each do |kind, msg| %>
+  <% if msg.is_a?(String) %>
+    <%= msg %>
+  <% end %>
+<% end %>
