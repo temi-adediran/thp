@@ -1,10 +1,120 @@
-<h3>The Haven Portal</h3>
+<div class="ld-header">
+  <div class="container pd-sm-x-0 pd-md-x-15">
+    <div>
+      <h6 class="ld-logo">The Haven</h6>
+      <span class="ld-headline"><i>...A Standard That Has Been Raised Against The Adversary</i></span>
+    </div>
+    <nav id="headerMenu" class="nav d-none d-lg-flex">
+      <a href="#sectionHome" class="nav-link">Home</a>
+      <a href="#sectionDashboard" class="nav-link">Dashboard</a>
+      <a href="#sectionSkin" class="nav-link">Skins</a>
+      <a href="#sectionPricing" class="nav-link">Pricing</a>
+      <a href="docs.html" target="_blank" class="nav-link">Docs</a>
+    </nav>
+    <nav class="nav nav-social">
+      <% if current_user %>
+        <p>Logged in as <%= current_user.email %></p>
+        <%= link_to "Change password", edit_user_path(current_user) %>
+        <%= link_to "Log Out", logout_path %>
+      <% else %>
+        <%= link_to "Sign Up", signup_path %>
+        <%= link_to "Log In", login_path %>
+      <% end %>
+    </nav>
+  </div><!-- container -->
+</div><!-- ld-header -->
 
-<% if current_user %>
-  Logged in as <%= current_user.email %>
-  <%= link_to "Change password", edit_user_path(current_user) %>
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", signup_path %> <br>
-  <%= link_to "Log In", login_path %>
-<% end %>
+<div id="sectionHome" class="slide-wrapper">
+  <div class="container pd-sm-x-0 pd-md-x-15">
+    <div class="mx-wd-sm-45p mx-wd-lg-40p">
+      <h1 class="tx-24 tx-sm-22 tx-md-28 tx-lg-36 tx-white-8 tx-numeric tx-light lh-4 mg-b-30 mg-md-b-40">Premium quality dashboard template for your digital <span class="tx-white tx-normal">software products</span> and <span class="tx-white tx-normal">user experiences.</span></h1>
+
+      <div class="mx-wd-sm-90p mx-wd-lg-80p d-flex flex-sm-column flex-md-row mg-b-40">
+        <a href="https://themeforest.net/item/cassie-responsive-admin-dashboard-template/" class="btn btn-uppercase btn-brand-02 tx-numeric flex-1">Buy Now - $20</a>
+        <a href="pages/dashboard-one.html" class="btn btn-uppercase btn-white bd-0 tx-numeric flex-1 mg-l-10 mg-sm-l-0 mg-md-l-10 mg-sm-t-5 mg-md-t-0">View Demo</a>
+      </div>
+      <div class="icon-list d-none d-md-flex">
+        <i class="fab fa-bootstrap"></i>
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-sass"></i>
+        <i class="fab fa-js-square"></i>
+        <i class="fab fa-npm"></i>
+        <i class="fab fa-gulp"></i>
+      </div>
+    </div>
+    <div class="slide-img-group">
+      <div class="slide-img-item">
+        <img src="assets/images/Pastor.jpg" class="img-fluid" alt="">
+      </div>
+<!--       <div class="slide-img-item">
+        <img src="assets/img/slide-two.png" class="img-fluid" alt="">
+      </div>
+      <div class="slide-img-item">
+        <img src="assets/img/slide-one.png" class="img-fluid" alt="">
+      </div> -->
+    </div>
+  </div><!-- container -->
+</div><!-- slide-wrapper -->
+
+
+<div class="ld-footer pd-t-40 pd-lg-t-60 pd-b-20 bg-gray-900">
+  <div class="container pd-xl-x-0">
+    <div class="row align-items-start">
+      <div class="col-lg-3">
+        <div class="logo-wrapper">
+          <h6 class="ld-logo">The Haven</h6>
+          <span class="ld-headline">A Standard That Has Been Raised Against The Adversary</span>
+        </div>
+      </div><!-- col -->
+      <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
+        <label class="tx-uppercase tx-white tx-numeric">Template Pages</label>
+        <ul class="list-unstyled mg-b-0">
+          <li><a href="">Dashboard</a></li>
+          <li><a href="">App Pages</a></li>
+          <li><a href="">Authentication</a></li>
+          <li><a href="">Error Pages</a></li>
+          <li><a href="">User Pages</a></li>
+          <li><a href="">Extras</a></li>
+        </ul>
+      </div><!-- col -->
+      <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
+        <label class="tx-uppercase tx-white tx-numeric">UI Design Library</label>
+        <ul class="list-unstyled mg-b-0">
+          <li><a href="">Content</a></li>
+          <li><a href="">Components</a></li>
+          <li><a href="">Utilities</a></li>
+          <li><a href="">Forms</a></li>
+          <li><a href="">Charts</a></li>
+          <li><a href="">Maps</a></li>
+        </ul>
+      </div><!-- col -->
+      <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
+        <label class="tx-uppercase tx-white tx-numeric">Other Information</label>
+        <ul class="list-unstyled mg-b-0">
+          <li><a href="">Themes</a></li>
+          <li><a href="">Documentation</a></li>
+          <li><a href="">Licenses</a></li>
+          <li><a href="">Changelog</a></li>
+          <li><a href="">Customer Support</a></li>
+          <li><a href="">Reviews</a></li>
+        </ul>
+      </div><!-- col -->
+      <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
+        <nav class="nav nav-social">
+          <a href="https://dribbble.com/themepixels" target="_blank"><i class="fab fa-dribbble"></i></a>
+          <a href="https://facebook.com/themepixels/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/themepixels" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/themepixels" target="_blank"><i class="fab fa-github"></i></a>
+        </nav>
+      </div><!-- col -->
+    </div><!-- row -->
+
+    <div class="ld-footer-bottom">
+      <span>Cassie &copy; 2019. All Right Reserved.</span>
+      <span>Created by: <a href="">Themepixels</a></span>
+    </div>
+  </div><!-- container -->
+</div>
+
+

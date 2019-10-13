@@ -19,7 +19,8 @@
 
 # Ignore uploaded files in development
 /storage/*
-
+.DS_Store
+capybara-*.html
 /node_modules
 /yarn-error.log
 
