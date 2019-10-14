@@ -1,17 +1,11 @@
 {
-  "name": "cassie",
+  "name": "The Haven Portal",
   "version": "1.0.0",
-  "description": "Responsive Dashboard App Template",
+  "description": "Administrative Portal",
   "main": "index.html",
   "author": "ThemePixels",
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.9.0",
-    "browser-sync": "^2.26.3",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.2",
-    "gulp-npm-dist": "^1.0.2",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0"
+    "@fortawesome/fontawesome-free": "^5.9.0"
   },
   "dependencies": {
     "animate.css": "^3.7.0",

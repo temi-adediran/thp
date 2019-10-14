@@ -1,5 +1,24 @@
 language: ruby
 rvm:
- - 2.6.3
+  - 2.6.3
+env:
+  - DB=postgresql
 
-script: bundle exec rspec
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+
+before_script:
+  - psql -c 'create database haven_portal_test' -U postgres
+
+cache:
+  directories:
+    - $HOME/.npm
