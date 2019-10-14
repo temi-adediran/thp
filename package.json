@@ -1,11 +1,12 @@
 {
-  "name": "The Haven Portal",
+  "name": "haven_portal",
   "version": "1.0.0",
-  "description": "Administrative Portal",
+  "description": "Portal",
   "main": "index.html",
   "author": "ThemePixels",
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.9.0"
+    "@fortawesome/fontawesome-free": "^5.9.0",
+     "bootstrap-sass": "^3.3.7"
   },
   "dependencies": {
     "animate.css": "^3.7.0",
