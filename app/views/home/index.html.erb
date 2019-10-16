@@ -1,10 +1,105 @@
-<h3>The Haven Portal</h3>
+<div class="ld-header">
+  <div class="container pd-sm-x-0 pd-md-x-15">
+    <div>
+      <h6 class="ld-logo">The Haven Portal</h6>
+    </div>
 
-<% if current_user %>
-  Logged in as <%= current_user.email %>
-  <%= link_to "Change password", edit_user_path(current_user) %>
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Sign Up", signup_path %> <br>
-  <%= link_to "Log In", login_path %>
-<% end %>
+    <nav class="">
+      <% if current_user %>
+        <p>Logged in as <%= current_user.email %></p>
+        <%= link_to "Change password", edit_user_path(current_user) %>
+        <%= link_to "Log Out", logout_path %>
+      <% else %>
+        <%= link_to "Log In", login_path, class: "btn btn-outline-warning btn-r-3" %>
+        <%= link_to "Sign Up", signup_path, class: "btn btn-warning btn-r-3" %>
+      <% end %>
+    </nav>
+  </div><!-- container -->
+</div><!-- ld-header -->
+
+<div id="sectionHome" class="slide-wrapper">
+  <div class="container pd-sm-x-0 pd-md-x-15">
+    <div class="mx-wd-sm-45p mx-wd-lg-40p">
+      <h1 class="tx-24 tx-sm-22 tx-md-28 tx-white-8 tx-numeric tx-light lh-4 mg-b-30 mg-md-b-40">The Haven ministry is borne out of the strategy of the Holy Spirit, the Lord of the harvest, to raise a group of people to a position of strength, economic power and spiritual wisdom.
+      <br>
+      <%= link_to "Get Involved", signup_path, class: "btn btn-uppercase btn-r-3 btn-white bd-0 tx-numeric flex-1 mg-l-10 mg-sm-l-0 mg-sm-t-5 mg-md-t-0" %>
+    </div>
+    <div class="slide-img-group">
+      <div class="slide-img-item">
+        <img src=<%= asset_path("Home-picture.jpg") %> class="img-fluid" alt="">
+      </div>
+    </div>
+  </div><!-- container -->
+</div><!-- slide-wrapper -->
+
+<div id="sectionSkin" class="pd-t-40 pd-lg-t-60 pd-b-45 pd-lg-b-65 bg-gray-200">
+  <div class="container pd-xl-x-0">
+    <h1 class="ld-title">Who We Are</h1>
+    <div class="row row-sm">
+      <div class="col-6 col-md-3">
+        <a href=<%= asset_path("Pastor.jpg") %> class="card card-hover bd-0 pd-5">
+          <img src=<%= asset_path("Pastor.jpg") %> class="img-fluid" alt="">
+        </a>
+      </div><!-- col -->
+      <div class="col-6 col-md-3">
+        <a href=<%= asset_path("haven-members-2.jpg") %> class="card card-hover bd-0 pd-5">
+          <img src=<%= asset_path("haven-members-2.jpg") %> class="img-fluid" alt="">
+        </a>
+      </div><!-- col -->
+      <div class="col-6 col-md-3 mg-t-20 mg-md-t-0">
+        <a href=<%= asset_path("haven-members-3.jpg") %> class="card card-hover bd-0 pd-5">
+          <img src=<%= asset_path("haven-members-3.jpg") %> class="img-fluid" alt="">
+        </a>
+      </div><!-- col -->
+      <div class="col-6 col-md-3 mg-t-20 mg-md-t-0">
+        <a href=<%= asset_path("haven-members-4.jpg") %> class="card card-hover bd-0 pd-5">
+          <img src=<%= asset_path("haven-members-4.jpg") %> class="img-fluid" alt="">
+        </a>
+      </div><!-- col -->
+    </div><!-- row -->
+  </div><!-- container -->
+</div>
+
+
+<div class="ld-footer pd-t-40 pd-lg-t-60 pd-b-20 bg-gray-900">
+  <div class="container pd-xl-x-0">
+    <div class="row align-items-start">
+      <div class="col-lg-3">
+        <div class="logo-wrapper">
+          <h6 class="ld-logo">The Haven</h6>
+          <span class="ld-headline"><i>...A Standard That Has Been Raised Against The Adversary</i></span>
+        </div>
+      </div><!-- col -->
+      <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
+        <label class="tx-uppercase tx-white tx-numeric">Address</label>
+        <ul class="list-unstyled mg-b-0">
+          <li><a href="">Dashboard</a></li>
+          <li><a href="">App Pages</a></li>
+          <li><a href="">Authentication</a></li>
+        </ul>
+      </div><!-- col -->
+      <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
+        <label class="tx-uppercase tx-white tx-numeric">Contacts</label>
+        <ul class="list-unstyled mg-b-0">
+          <li><a href="">Content</a></li>
+          <li><a href="">Components</a></li>
+          <li><a href="">Utilities</a></li>
+        </ul>
+      </div><!-- col -->
+      <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
+        <label class="tx-uppercase tx-white tx-numeric">Links</label>
+        <ul class="list-unstyled mg-b-0">
+          <li><a href="">Themes</a></li>
+          <li><a href="">Documentation</a></li>
+          <li><a href="">Licenses</a></li>
+        </ul>
+      </div><!-- col -->
+    </div><!-- row -->
+
+    <div class="ld-footer-bottom">
+      <span>The Haven &copy; 2019. All Right Reserved.</span>
+    </div>
+  </div><!-- container -->
+</div>
+
+
