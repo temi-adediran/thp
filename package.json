@@ -1,9 +1,10 @@
 {
   "name": "haven_portal",
   "version": "1.0.0",
-  "description": "Portal",
+  "description": "",
   "main": "index.html",
-  "author": "ThemePixels",
+  "author": "",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
     "webpack-dev-server": "^3.8.2"
