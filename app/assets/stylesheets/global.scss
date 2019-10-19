@@ -112,9 +112,6 @@
 /*// Mixins*/
 @import "base/mixins";
 
-/* ############### BOOTSTRAP FRAMEWORK ############### */
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-
 /* ############### BOOTSTRAP OVERRIDES ############### */
 @import "lib/bootstrap/reboot";
 @import "lib/bootstrap/alert";
@@ -209,8 +206,5 @@
 @import "util/typography";
 @import "util/width";
 
-/*#### SKIN*/
-@import "skins/one";
-
 /*OTHER STYLES*/
-@import "styles/**/*"
+@import "styles/landing"
