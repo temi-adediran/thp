@@ -4,6 +4,7 @@
   "description": "Portal",
   "main": "index.html",
   "author": "ThemePixels",
+  "license": "",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.9.0",
     "webpack-dev-server": "^3.8.2"
