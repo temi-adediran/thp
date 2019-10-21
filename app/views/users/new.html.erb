@@ -1,53 +1,42 @@
 <div class="signup-panel">
-  <%= form_for(@user, url: users_path) do |f| %>
-    <% if @user.errors.any? %>
-      <div>
-        <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <div class="signup-sidebar">
+    <div class="signup-sidebar-body">
+      <%= link_to root_path, class: "sidebar-logo mg-b-40 mg-t-60" do %>
+        <%= image_tag asset_path("haven-logo.png") %>
+      <% end %>
 
-    <div class="signup-sidebar">
-      <div class="signup-sidebar-body">
-        <span class="sidebar-logo mg-b-40"><%= link_to "The Haven Portal", root_path %></span>
-        <h4 class="signup-title">Create An Account!</h4>
-        <h5 class="signup-subtitle">It only takes a minute.</h5>
+      <h4 class="signup-title">Create new account</h4>
+     <!--  <h5 class="signup-subtitle">It's free and only takes a minute.</h5> -->
+
+      <%= form_for(@user, url: users_path) do |f| %>
+          <% if @user.errors.any? %>
+            <div>
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
         <div class="signup-form">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Firstname</label>
-                <input type="text" class="form-control">
-              </div>
-            </div><!-- col -->
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label>Lastname</label>
-                <input type="text" class="form-control">
-              </div>
-            </div><!-- col -->
-          </div><!-- row -->
 
-          <div class="row mg-b-5">
-            <div class="col-sm-6">
+          <div class="">
+            <div class="">
               <div class="form-group">
                 <%= f.label :email, "Email address" %>
                 <%= f.text_field :email, class: "form-control" %>
               </div>
             </div><!-- col -->
 
-            <div class="col-sm-6">
+            <div class="">
               <div class="form-group">
                 <%= f.label :password, "Password" %>
                 <%= f.password_field :password, class: "form-control" %>
               </div>
             </div><!-- col -->
 
-            <div class="col-sm-6">
+            <div class="">
               <div class="form-group">
                 <%= f.label :password_confirmation, "Confirm password" %>
                 <%= f.password_field :password_confirmation, class: "form-control" %>
@@ -55,21 +44,23 @@
             </div><!-- col -->
           </div><!-- row -->
 
-          <div class="form-group mg-b-30">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="agree">
-              <label class="custom-control-label tx-sm" for="agree">I have read and agree to your <a href="">Terms of Use</a> and <a href="">Privacy Policy</a></label>
+            <div class="form-group mg-b-30">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="agree">
+                <label class="custom-control-label tx-sm" for="agree">I have read and agree to your <a href="">Terms of Use</a> and <a href="">Privacy Policy</a></label>
+              </div>
             </div>
-          </div>
-          <div class="form-group d-flex mg-b-0">
-            <button class="btn btn-brand-01 btn-uppercase btn-block"><%= f.submit "Create New Account" %></button>
+            <div class="form-group d-flex mg-b-0">
+              <%= f.button "Create new account", class: "btn btn-brand-01 btn-block" %>
+            </div>
+            <p class="mg-t-auto mg-b-0 tx-color-01">Already have an account?
+              <%= link_to "Log in", login_path %>
+            </p>
           </div>
         </div>
       <% end %>
 
-      <p class="mg-t-auto mg-b-0 tx-color-03">Already have an account?
-        <button><%= link_to "Sign in", login_path %></button>
-      </p>
     </div><!-- signup-sidebar-body -->
   </div><!-- signup-sidebar -->
 </div><!-- signup-panel -->
+
