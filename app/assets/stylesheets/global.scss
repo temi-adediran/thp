@@ -110,6 +110,7 @@
 @import "base/variables";
 
 /*// Mixins*/
+@import "base/main";
 @import "base/mixins";
 
 /* ############### BOOTSTRAP OVERRIDES ############### */
@@ -208,6 +209,5 @@
 
 
 /*OTHER STYLES*/
-@import "base/cassie";
 @import "styles/landing";
 @import "styles/authentication";

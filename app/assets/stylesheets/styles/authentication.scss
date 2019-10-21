@@ -4,3 +4,10 @@
   background-color: $off-white;
 }
 
+.text-link {
+  &:hover {
+    color: $haven-color;
+    border-bottom: 2px solid $haven-color;
+  }
+}
+
