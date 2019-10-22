@@ -23,6 +23,20 @@ en:
         alert: "Password reset was not successful. Pls try again!"
         notice: "Password has been reset successfully"
 
+  views:
+    users:
+      new:
+        button: "Create new account"
+      edit:
+        button: "Change password"
+    sessions:
+      new:
+        email: "Email address"
+        button: "Sign In"
+    password_resets:
+      edit:
+        button: "Update password"
+
   mailers:
     user_mailer:
       password_reset:

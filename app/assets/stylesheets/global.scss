@@ -110,6 +110,7 @@
 @import "base/variables";
 
 /*// Mixins*/
+@import "base/main";
 @import "base/mixins";
 
 /* ############### BOOTSTRAP OVERRIDES ############### */
@@ -138,6 +139,7 @@
 @import "extended/avatar";
 @import "extended/card";
 @import "extended/divider";
+@import "extended/flash";
 @import "extended/marker";
 @import "extended/modal";
 @import "extended/link";
@@ -206,5 +208,7 @@
 @import "util/typography";
 @import "util/width";
 
+
 /*OTHER STYLES*/
-@import "styles/landing"
+@import "styles/landing";
+@import "styles/authentication";
