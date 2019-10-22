@@ -1,14 +1,16 @@
 <div class="signin-panel">
   <div class="signin-sidebar">
     <div class="signin-sidebar-body">
-      <%= link_to root_path, class: "sidebar-logo mg-b-40 mg-t-60" do %>
-        <%= image_tag asset_path("haven-logo.png") %>
-      <% end %>
+      <%= render partial: "home/haven_logo" %>
 
       <h4 class="signin-title">Log in</h4>
 
       <div class="signin-form">
         <%= form_tag sessions_path do |form| %>
+          <% if flash.any? %>
+            <%= render partial: "layouts/flash" %>
+          <% end %>
+          <br>
 
           <div class="form-group">
             <%= label_tag :email, t("views.sessions.new.button") %>

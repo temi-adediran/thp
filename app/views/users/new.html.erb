@@ -1,19 +1,16 @@
 <div class="signup-panel">
   <div class="signup-sidebar">
     <div class="signup-sidebar-body">
-      <%= link_to root_path, class: "sidebar-logo mg-b-40 mg-t-60" do %>
-        <%= image_tag asset_path("haven-logo.png") %>
-      <% end %>
+      <%= render partial: "home/haven_logo" %>
 
       <h4 class="signup-title">Create new account</h4>
-     <!--  <h5 class="signup-subtitle">It's free and only takes a minute.</h5> -->
 
       <%= form_for(@user, url: users_path) do |f| %>
           <% if @user.errors.any? %>
             <div>
               <ul>
               <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+                <li class="flash-message alert-msg"><%= message %></li>
               <% end %>
               </ul>
             </div>
