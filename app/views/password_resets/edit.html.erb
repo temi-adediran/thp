@@ -1,27 +1,39 @@
-<h1>Password Reset</h1>
-
-<%= form_for(@user, url: password_reset_path(params[:id]) ) do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error-messages">
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="signin-panel">
+  <div class="signin-sidebar">
+    <div class="signin-sidebar-body">
+      <%= link_to root_path, class: "sidebar-logo mg-b-40 mg-t-60" do %>
+        <%= image_tag asset_path("haven-logo.png") %>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %>
-    <%= f.password_field :password %>
-  </div>
+      <h4 class="signin-title">Reset Password</h4>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %>
-    <%= f.password_field :password_confirmation %>
-  </div>
+      <div class="signin-form">
+        <%= form_for(@user, url: password_reset_path(params[:id]) ) do |f| %>
+          <% if @user.errors.any? %>
+            <div class="error-messages">
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-  <div class="actions">
-    <%= f.submit "Update password" %>
-  </div>
-<% end %>
+          <div class="form-group">
+            <%= f.label :password, "New password" %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, "Confirm new password" %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+
+          <div class="form-group d-flex mg-b-0">
+            <%= button_tag t("views.password_resets.edit.button"), class: "btn btn-brand-01 btn-uppercase flex-fill" %>
+          </div>
+        <% end %>
+      </div>
+    </div><!-- signin-sidebar-body -->
+  </div><!-- signin-sidebar -->
+</div><!-- signin-panel -->

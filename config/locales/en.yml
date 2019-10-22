@@ -31,6 +31,9 @@ en:
       new:
         email: "Email address"
         button: "Sign In"
+    password_resets:
+      edit:
+        button: "Update password"
 
   mailers:
     user_mailer:
