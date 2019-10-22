@@ -8,7 +8,7 @@ RSpec.describe 'User', type: :feature do
     visit login_path
     fill_in("Email", with: user.email)
     fill_in("Password", with: user.password)
-    click_on("Login")
+    click_on(t("views.sessions.new.button"))
 
     expect(page).to have_content(t("controllers.sessions.create.notice"))
     expect(page).to have_content("Logged in as #{user.email}")
@@ -19,7 +19,7 @@ RSpec.describe 'User', type: :feature do
       visit login_path
       fill_in("Email", with: user.email)
       fill_in("Password", with: "Invalid_password")
-      click_on("Login")
+      click_on(t("views.sessions.new.button"))
 
       expect(page).to have_content(t("controllers.sessions.create.alert"))
       expect(page).to_not have_content("Logged in as #{user.email}")

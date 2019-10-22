@@ -4,7 +4,7 @@ module SessionHelpers
       visit login_path
       fill_in "email", with: user.email
       fill_in "password", with: "password"
-      click_button "Login"
+      click_button t("views.sessions.new.button")
     end
   end
 end
