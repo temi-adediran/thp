@@ -27,6 +27,8 @@ en:
     users:
       new:
         button: "Create new account"
+      edit:
+        button: "Change password"
     sessions:
       new:
         email: "Email address"

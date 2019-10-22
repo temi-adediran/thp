@@ -12,7 +12,7 @@ RSpec.describe 'User', type: :feature do
     click_on(t("views.users.new.button"))
 
     expect(User.last.email).to eq "user1@sample.com"
-    expect(page).to have_content t("controllers.users.create.notice")
+    expect(page).to have_content "Logged in as user1@sample.com"
   end
 
   context "password not upto 6 characters" do

@@ -1,4 +1,14 @@
 <h1>User Profile page</h1>
+<nav class="">
+  <% if current_user %>
+    <p>Logged in as <%= current_user.email %></p>
+    <%= link_to "Log Out", logout_path %>
+  <% end %>
+</nav>
+
+<% if flash.any? %>
+  <%= render partial: "layouts/flash" %>
+<% end %>
 
 <h5>Change Password</h5>
 
@@ -29,6 +39,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update password" %>
+    <%= f.submit t("views.users.edit.button") %>
   </div>
 <% end %>
