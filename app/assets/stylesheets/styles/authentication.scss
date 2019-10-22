@@ -1,0 +1,13 @@
+.signup-panel {
+  /*background: url("~images/gold-bar-3.jpg") no-repeat center center fixed;*/
+  /*background-size: cover;*/
+  background-color: $off-white;
+}
+
+.text-link {
+  &:hover {
+    color: $haven-color;
+    border-bottom: 2px solid $haven-color;
+  }
+}
+

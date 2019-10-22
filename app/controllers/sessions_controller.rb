@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_url, notice: t("controllers.sessions.create.notice")
+      redirect_to edit_user_path(user)
     else
       flash.now[:alert] = t("controllers.sessions.create.alert")
       render "new"

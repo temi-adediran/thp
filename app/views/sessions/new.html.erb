@@ -1,16 +1,38 @@
-<h1>Login</h1>
-<%= form_tag sessions_path do |form| %>
-  <div class=”field”>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-  </div>
-  <div class=”field”>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-  </div>
-  <div class=”actions”>
-    <%= submit_tag "Login" %>
-  </div>
-<% end %>
-<%= link_to "Forgot password", forgot_password_path %>
-<%= link_to "Sign up", signup_path %>
+<div class="signin-panel">
+  <div class="signin-sidebar">
+    <div class="signin-sidebar-body">
+      <%= render partial: "home/haven_logo" %>
+
+      <h4 class="signin-title">Log in</h4>
+
+      <div class="signin-form">
+        <%= form_tag sessions_path do |form| %>
+          <% if flash.any? %>
+            <%= render partial: "layouts/flash" %>
+          <% end %>
+          <br>
+
+          <div class="form-group">
+            <%= label_tag :email, t("views.sessions.new.email") %>
+            <%= text_field_tag :email, nil,  class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <label class="d-flex justify-content-between">
+              <%= label_tag :password %>
+              <%= link_to "Forgot password?", forgot_password_path, class: "tx-13 text-link" %>
+            </label>
+            <%= password_field_tag :password, nil, class: "form-control" %>
+          </div>
+
+          <div class="form-group d-flex mg-b-0">
+            <%= button_tag t("views.sessions.new.button"), class: "btn btn-brand-01 btn-uppercase flex-fill" %>
+            <%= link_to "Sign Up", signup_path, class: "btn btn-white btn-uppercase flex-fill mg-l-10" %>
+          </div>
+        <% end %>
+      </div>
+
+      <p class="mg-t-auto mg-b-0 tx-sm tx-color-03">By signing in, you agree to our <a href="", class= "text-link">Terms of Use</a> and <a href="", class="text-link">Privacy Policy</a></p>
+    </div><!-- signin-sidebar-body -->
+  </div><!-- signin-sidebar -->
+</div><!-- signin-panel -->

@@ -10,12 +10,12 @@ RSpec.describe 'User', type: :feature do
     click_link("Forgot password")
     expect(page).to have_current_path(forgot_password_path)
 
-    fill_in("email", with: user.email)
+    fill_in("Email address", with: user.email)
 
-    click_on("Reset Password")
+    click_on("Send Code Verification")
 
     expect(page).to have_content t("controllers.password_reset.create.notice")
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path(password_resets_path)
     expect(user.reload.password_reset_token).to be_present
     expect(user.reload.password_reset_sent_at).to be_present
     # test email is sent
@@ -51,6 +51,6 @@ RSpec.describe 'User', type: :feature do
   def request_password_token
     visit forgot_password_path
     fill_in("email", with: user.email)
-    click_on("Reset Password")
+    click_on("Send Code Verification")
   end
 end
