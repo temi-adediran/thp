@@ -41,3 +41,6 @@ en:
     user_mailer:
       password_reset:
         subject: "Password Reset"
+      welcome_email:
+        subject: "Thank you for signing up on the Haven Portal"
+

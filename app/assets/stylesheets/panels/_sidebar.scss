@@ -6,7 +6,7 @@
   top: 0;
   left: -($sidebar-width - 10px);
   z-index: 20;
-  background-color: #fff;
+  background-color: $off-white;
 
   @include media-breakpoint-up(lg) {
     left: 0;
