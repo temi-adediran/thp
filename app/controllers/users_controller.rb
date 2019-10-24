@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update]
+  skip_before_action :ensure_authentication, only: [:new, :create]
 
   def new
     @user = User.new
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to edit_user_path(@user), notice: t("controllers.users.update.notice")
+      redirect_to dashboard_path, notice: t("controllers.users.update.notice")
     else
       render :edit
     end

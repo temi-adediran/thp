@@ -15,7 +15,7 @@
 <%= form_for(@password_form, url: change_password_path, method: :post) do |f| %>
   <% if @password_form.errors.any? %>
     <div class="error-messages">
-      <ul>
+      <ul class="no-bullets">
         <% @password_form.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -24,7 +24,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :original_password, "Old password" %>
+    <%= f.label :original_password, "Current password" %>
     <%= f.password_field :original_password %>
   </div>
 
