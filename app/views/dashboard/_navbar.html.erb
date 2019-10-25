@@ -9,7 +9,7 @@
   </div>
 
   <div class="header-right">
-    <a href="" class="header-help-link"><i data-feather="help-circle"></i></a>
+    <!-- <a href="" class="header-help-link"><i data-feather="help-circle"></i></a> -->
     <div>
         Logged in as <%= current_user.email %>
     </div>
@@ -24,28 +24,28 @@
           <a href="" class="dropdown-item">
             <div class="avatar"><span class="avatar-initial rounded-circle text-primary bg-primary-light">s</span></div>
             <div class="dropdown-item-body">
-              <p><strong>Socrates Itumay</strong> marked the task as completed.</p>
+              <p><strong>Kingdom Credit Alert</strong> Your account has been credited with N10,000,000 amount for META project. </p>
               <span>5 hours ago</span>
             </div>
           </a>
           <a href="" class="dropdown-item">
             <div class="avatar"><span class="avatar-initial rounded-circle tx-pink bg-pink-light">r</span></div>
             <div class="dropdown-item-body">
-              <p><strong>Reynante Labares</strong> marked the task as incomplete.</p>
+              <p><strong>The Haven E-Series</strong> The E-Series "Business Planning" is coming up on Friday, 21st November, 2019. </p>
               <span>8 hours ago</span>
             </div>
           </a>
           <a href="" class="dropdown-item">
             <div class="avatar"><span class="avatar-initial rounded-circle tx-success bg-success-light">d</span></div>
             <div class="dropdown-item-body">
-              <p><strong>Dyanne Aceron</strong> responded to your comment on this <strong>post</strong>.</p>
+              <p><strong>Kingdom Credit Alert</strong> Your account has been credited with N2,000,000 amount for MOG 2019 project. </p>
               <span>a day ago</span>
             </div>
           </a>
           <a href="" class="dropdown-item">
             <div class="avatar"><span class="avatar-initial rounded-circle tx-indigo bg-indigo-light">k</span></div>
             <div class="dropdown-item-body">
-              <p><strong>Kirby Avendula</strong> marked the task as incomplete.</p>
+              <p><strong>The Haven E-Series</strong> The E-Series "New Business Opportunities" is coming up on Friday, 21st November, 2019. </p>
               <span>2 days ago</span>
             </div>
           </a>
@@ -68,8 +68,8 @@
               <img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt="">
             </div><!-- avatar -->
             <div class="media-body mg-l-10">
-              <h6>Louise Kate Lumaad</h6>
-              <span>Administrator</span>
+              <h6>Temitope Adediran</h6>
+              <span>Member</span>
             </div>
           </div><!-- media -->
         </div>
@@ -78,14 +78,13 @@
           <a href="" class="dropdown-item"><i data-feather="edit-2"></i> Edit Profile</a>
           <a href="" class="dropdown-item"><i data-feather="briefcase"></i> Account Settings</a>
           <a href="" class="dropdown-item"><i data-feather="shield"></i> Privacy Settings</a>
-          <a href="" class="dropdown-item"><i data-feather="log-out"></i> Sign Out</a>
+          <% if current_user %>
+            <%= link_to logout_path, class: "dropdown-item" do %>
+              <i data-feather="log-out"></i> Log Out
+            <% end %>
+          <% end %>
         </div>
       </div><!-- dropdown-menu -->
-    </div>
-    <div>
-      <% if current_user %>
-        <%= link_to "Log Out", logout_path, class: "btn btn-white" %>
-      <% end %>
     </div>
   </div><!-- header-right -->
 </div><!-- header -->
