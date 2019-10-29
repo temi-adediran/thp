@@ -39,6 +39,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+  end
+
+  def account_settings
+  end
+
   private
 
   def set_user

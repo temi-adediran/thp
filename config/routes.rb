@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post "change_password", to: "users#change_password"
 
   get "dashboard", to: "dashboard#index", as: "dashboard"
+  get "profile", to: "users#profile", as: "profile"
+  get "account_settings", to: "users#account_settings", as: "account_settings"
 end
