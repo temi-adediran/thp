@@ -5,12 +5,13 @@ RSpec.describe 'User', type: :feature do
 
   scenario 'change password' do
     sign_in_user(user)
-    expect(page).to have_content("Change Password")
+    expect(page).to have_content("Dashboard")
 
+    visit edit_user_path(user)
     # click_on(t("views.users.edit.button"))
     # expect(page).to have_current_path(edit_user_path(user))
 
-    fill_in("Old password", with: user.password)
+    fill_in("Current password", with: user.password)
     fill_in("New password", with: "password")
     fill_in("Confirm new password", with: "password")
     click_on(t("views.users.edit.button"))

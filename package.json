@@ -6,7 +6,7 @@
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {

@@ -1,0 +1,224 @@
+<%= render partial: "sidebar" %>
+
+<div class="content content-page">
+  <%= render partial: "navbar" %>
+  <%= render partial: "breadcrumb" %>
+
+  <div class="content-body">
+    <div class="row row-sm">
+
+      <div class="col-sm-6 col-md-4 mg-t-15 mg-sm-t-20">
+        <div class="card card-hover card-chart-one">
+          <div class="card-header bg-transparent pd-b-0 bd-b-0">
+            <h6 class="card-title mg-b-0">Total Giving for the Year 2019</h6>
+            <nav class="nav">
+              <a href="" class="link-gray-500"><i data-feather="help-circle" class="svg-16"></i></a>
+              <a href="" class="link-gray-500"><i data-feather="more-vertical" class="svg-16"></i></a>
+            </nav>
+          </div>
+          <div class="card-body pd-t-0">
+            <div>
+              <h1 class="card-value"><span>$</span>1,823,000</h1>
+              <div class="d-flex align-items-center tx-teal">
+                <i data-feather="arrow-up-circle" class="svg-12 fill-teal"></i>
+                <!-- <span class="mg-l-5 tx-numeric tx-11">31.82%</span> -->
+              </div>
+            </div>
+            <div id="flotChart2" class="flot-chart"></div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-sm-6 col-md-4 mg-t-15 mg-sm-t-20">
+        <div class="card card-hover card-chart-one">
+          <div class="card-header bg-transparent pd-t-15 pd-l-20 pd-r-15 pd-b-0 bd-b-0">
+            <h6 class="card-title mg-b-0">Total Haven Projects</h6>
+            <nav class="nav">
+              <a href="" class="link-gray-500"><i data-feather="help-circle" class="svg-16"></i></a>
+              <a href="" class="link-gray-500"><i data-feather="more-vertical" class="svg-16"></i></a>
+            </nav>
+          </div>
+          <div class="card-body pd-t-0">
+            <div>
+              <h1 class="card-value"><span>$</span>1,500,000</h1>
+              <div class="d-flex align-items-center tx-teal">
+                <i data-feather="arrow-up-circle" class="svg-12 fill-teal"></i>
+                <span class="mg-l-5 tx-numeric tx-11">10.74%</span>
+              </div>
+            </div>
+            <div id="flotChart3" class="flot-chart"></div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+      <div class="col-sm-6 col-md-4 mg-t-15 mg-sm-t-20">
+        <div class="card card-hover card-chart-one">
+          <div class="card-header bg-transparent pd-t-15 pd-l-20 pd-r-15 pd-b-0 bd-b-0">
+            <h6 class="card-title mg-b-0">Total Local Projects</h6>
+            <nav class="nav">
+              <a href="" class="link-gray-500"><i data-feather="help-circle" class="svg-16"></i></a>
+              <a href="" class="link-gray-500"><i data-feather="more-vertical" class="svg-16"></i></a>
+            </nav>
+          </div>
+          <div class="card-body pd-t-0">
+            <div>
+              <h1 class="card-value"><span>$</span>323,000</h1>
+              <div class="d-flex align-items-center tx-teal">
+                <i data-feather="arrow-up-circle" class="svg-12 fill-teal"></i>
+                <span class="mg-l-5 tx-numeric tx-11">28.68%</span>
+              </div>
+            </div>
+            <div id="flotChart1" class="flot-chart"></div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+
+      <div class="col-md-6 mg-t-15 mg-sm-t-20">
+        <div class="card card-hover card-chart-four">
+          <div class="card-header bg-transparent">
+            <h6 class="card-title mg-b-0">Givings Per Project</span></h6>
+            <nav class="nav nav-card-icon">
+              <a href=""><i data-feather="refresh-ccw"></i></a>
+              <a href=""><i data-feather="printer"></i></a>
+              <a href=""><i data-feather="more-horizontal"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <div class="chart-wrapper"><canvas id="chartBar2"></canvas></div>
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+
+
+      <div class="col-md-12 col-xl-6 mg-t-15 mg-sm-t-20">
+        <div class="card card-hover card-chart-three">
+          <div class="card-header bg-transparent pd-lg-y-15">
+            <h6 class="card-title mg-b-0">Givings Per Month</h6>
+            <nav class="nav nav-card-icon">
+              <a href=""><i data-feather="refresh-ccw"></i></a>
+              <a href=""><i data-feather="printer"></i></a>
+              <a href=""><i data-feather="more-horizontal"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body">
+            <div class="card-chart-header">
+              <div class="chart-legend">
+                <label><span class="bg-blue"></span> Haven Project</label>
+                <label><span class="bg-green"></span> Local Project</label>
+              </div>
+            </div><!-- card-chart-header -->
+
+            <div class="chart-wrapper"><canvas id="chartBar1"></canvas></div>
+          </div>
+        </div><!-- card -->
+      </div><!-- col -->
+
+      <div class="col-md-6 mg-t-15 mg-sm-t-20">
+        <div class="card card-hover card-campaign-one">
+          <div class="card-header bg-transparent">
+            <h6 class="card-title mg-b-0">Percentage of Givings</h6>
+            <nav class="nav nav-card-icon">
+              <a href=""><i data-feather="refresh-ccw"></i></a>
+              <a href=""><i data-feather="printer"></i></a>
+              <a href=""><i data-feather="more-horizontal"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <div class="card-body pd-xl-25">
+            <div class="row">
+              <div class="col-sm">
+                <div class="chart-icon brand-02"><i data-feather="box"></i></div>
+                <h1 class="chart-value">68<span>%</span></h1>
+                <div class="progress ht-5 mg-b-20">
+                  <div class="progress-bar bg-brand-02 wd-70p" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="chart-label">Change in consideration</p>
+                <span class="d-block tx-gray-500 tx-12">of campaigns saw a lift in consideration, with an average lift of 15%.</span>
+              </div><!-- col -->
+              <div class="col-sm mg-t-25 mg-sm-t-0">
+                <div class="chart-icon brand-01"><i data-feather="layout"></i></div>
+                <h1 class="chart-value">30<span>%</span></h1>
+                <div class="progress ht-5 mg-b-20">
+                  <div class="progress-bar bg-brand-01 wd-30p" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="chart-label">Change in favorality</p>
+                <span class="d-block tx-gray-500 tx-12">of campaigns saw a lift in favorality, with an average lift of 12%.</span>
+              </div><!-- col -->
+            </div><!-- row -->
+          </div><!-- card-body -->
+        </div><!-- card -->
+      </div><!-- col -->
+
+      <div class="col-md-12 col-xl-6 mg-t-15 mg-sm-t-20 order-md-3 order-lg-0">
+        <div class="card card-hover card-transactions">
+          <div class="card-header bg-transparent">
+            <h6 class="card-title mg-b-0">Recent Givings</h6>
+            <nav class="nav nav-card-icon">
+              <a href=""><i data-feather="download"></i></a>
+              <a href=""><i data-feather="printer"></i></a>
+              <a href=""><i data-feather="more-horizontal"></i></a>
+            </nav>
+          </div><!-- card-header -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="avatar"><span class="avatar-initial rounded-circle bg-primary-light"><i data-feather="shopping-bag" class="svg-18"></i></span></div>
+              <div class="mg-l-10 mg-sm-l-15">
+                <h6>Purchase Receipt - D107046</h6>
+                <small>Today, August 01, 2019</small>
+              </div>
+              <div class="mg-l-auto tx-right">
+                <h6>$69.99</h6>
+                <!-- <small class="d-none d-sm-inline">Paid via PayPal</small> -->
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="avatar"><span class="avatar-initial rounded-circle bg-teal-light"><i data-feather="package" class="svg-18"></i></span></div>
+              <div class="mg-l-10 mg-sm-l-15">
+                <h6>Purchase Shipment - D108015</h6>
+                <small>Today, August 01, 2019</small>
+              </div>
+              <div class="mg-l-auto tx-right">
+                <h6>$310.50</h6>
+                <!-- <small class="d-none d-sm-inline">Bank transfer</small> -->
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="avatar"><span class="avatar-initial rounded-circle bg-pink-light"><i data-feather="share" class="svg-18"></i></span></div>
+              <div class="mg-l-10 mg-sm-l-15">
+                <h6>Purchase Receipt - D107046</h6>
+                <small>Yesterday, July 31, 2019</small>
+              </div>
+              <div class="mg-l-auto tx-right">
+                <h6>$69.99</h6>
+                <!-- <small class="d-none d-sm-inline">Paid via card</small> -->
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="avatar"><span class="avatar-initial rounded-circle bg-pink-light"><i data-feather="share" class="svg-18"></i></span></div>
+              <div class="mg-l-10 mg-sm-l-15">
+                <h6>Purchase Receipt - D107046</h6>
+                <small>Monday, July 27, 2019</small>
+              </div>
+              <div class="mg-l-auto tx-right">
+                <h6>$69.99</h6>
+                <!-- <small class="d-none d-sm-inline">Paid via card</small> -->
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="avatar"><span class="avatar-initial rounded-circle bg-teal-light"><i data-feather="package" class="svg-18"></i></span></div>
+              <div class="mg-l-10 mg-sm-l-15">
+                <h6>Purchase Shipment - D108015</h6>
+                <small>Saturday, July 20, 2019</small>
+              </div>
+              <div class="mg-l-auto tx-right">
+                <h6>$310.50</h6>
+                <!-- <small class="d-none d-sm-inline">Bank transfer</small> -->
+              </div>
+            </li>
+          </ul><!-- list-group -->
+          <div class="card-footer bg-transparent">
+            <a href="">View All Giving Records For The Year<i class="icon ion-chevron-right"></i><i class="icon ion-chevron-right"></i></a>
+          </div><!-- card-footer -->
+        </div><!-- card -->
+      </div><!-- col -->
+
+    </div><!-- row -->
+  </div><!-- content-body -->
+</div><!-- content -->

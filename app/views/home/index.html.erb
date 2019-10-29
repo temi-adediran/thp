@@ -1,7 +1,9 @@
 <div class="ld-header">
   <div class="container pd-sm-x-0 pd-md-x-15">
     <div>
-      <h6 class="ld-logo">The Haven Portal</h6>
+      <%= link_to root_path, class: "sidebar-logo mg-b-40 mg-t-60" do %>
+        <%= image_tag asset_path("haven-logo.png"), class: "ld-logo" %>
+      <% end %>
     </div>
 
     <nav class="">
@@ -10,8 +12,8 @@
         <%= link_to "Change password", edit_user_path(current_user) %>
         <%= link_to "Log Out", logout_path %>
       <% else %>
-        <%= link_to "Log In", login_path, class: "btn btn-outline-warning btn-r-3" %>
-        <%= link_to "Sign Up", signup_path, class: "btn btn-warning btn-r-3" %>
+        <%= link_to "LOG IN", login_path, class: "btn btn-outline-warning btn-r-3" %>
+        <%= link_to "SIGN UP", signup_path, class: "btn btn-warning btn-r-3 btn-col-w" %>
       <% end %>
     </nav>
   </div><!-- container -->
@@ -22,7 +24,7 @@
     <div class="mx-wd-sm-45p mx-wd-lg-40p">
       <h1 class="tx-24 tx-sm-22 tx-md-28 tx-white-8 tx-numeric tx-light lh-4 mg-b-30 mg-md-b-40">The Haven ministry is borne out of the strategy of the Holy Spirit, the Lord of the harvest, to raise a group of people to a position of strength, economic power and spiritual wisdom.
       <br>
-      <%= link_to "Get Involved", signup_path, class: "btn btn-uppercase btn-r-3 btn-white bd-0 tx-numeric flex-1 mg-l-10 mg-sm-l-0 mg-sm-t-5 mg-md-t-0" %>
+      <%= link_to "Get Involved", signup_path, class: "btn btn-uppercase btn-r-3 btn-white bd-0 tx-numeric flex-1 mg-sm-l-0 mg-t-10" %>
     </div>
     <div class="slide-img-group">
       <div class="slide-img-item">
@@ -66,32 +68,26 @@
     <div class="row align-items-start">
       <div class="col-lg-3">
         <div class="logo-wrapper">
-          <h6 class="ld-logo">The Haven</h6>
+          <h6 class="ld-logo tx-white"><%= image_tag asset_path("haven-logo.png"), class: "ld-logo" %></h6>
           <span class="ld-headline"><i>...A Standard That Has Been Raised Against The Adversary</i></span>
         </div>
       </div><!-- col -->
       <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
-        <label class="tx-uppercase tx-white tx-numeric">Address</label>
-        <ul class="list-unstyled mg-b-0">
-          <li><a href="">Dashboard</a></li>
-          <li><a href="">App Pages</a></li>
-          <li><a href="">Authentication</a></li>
-        </ul>
+        <label class="tx-uppercase tx-white tx-numeric mg-b-25">Address</label>
+        <p class="tx-off-white">21/23 Billings Way,
+        <br>Oregun Industrial Estate, Ikeja,
+        <br>Lagos, Nigeria</p>
       </div><!-- col -->
       <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
-        <label class="tx-uppercase tx-white tx-numeric">Contacts</label>
-        <ul class="list-unstyled mg-b-0">
-          <li><a href="">Content</a></li>
-          <li><a href="">Components</a></li>
-          <li><a href="">Utilities</a></li>
-        </ul>
+        <label class="tx-uppercase tx-white tx-numeric mg-b-25">Contacts</label>
+        <p class="tx-off-white">Email: info@thehavennation.org</p>
       </div><!-- col -->
       <div class="col-6 col-sm mg-t-20 mg-lg-t-0">
         <label class="tx-uppercase tx-white tx-numeric">Links</label>
         <ul class="list-unstyled mg-b-0">
-          <li><a href="">Themes</a></li>
-          <li><a href="">Documentation</a></li>
-          <li><a href="">Licenses</a></li>
+          <li><a href="https://thmm.thehavennation.org/index.php/about_us", target="_blank">About Us</a></li>
+          <li><a href="https://thmm.thehavennation.org/index.php/site/privacy", target="_blank">Policy</a></li>
+          <li><a href="https://thmm.thehavennation.org/index.php/contact", target="_blank">Contact</a></li>
         </ul>
       </div><!-- col -->
     </div><!-- row -->
