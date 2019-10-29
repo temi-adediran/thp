@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "forgot_password", to: "password_resets#new", as: "forgot_password"
   get "reset_password", to: "password_resets#edit", as:"reset_password"
   post "change_password", to: "users#change_password"
+
+  get "dashboard", to: "dashboard#index", as: "dashboard"
 end

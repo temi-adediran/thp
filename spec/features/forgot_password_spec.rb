@@ -29,6 +29,7 @@ RSpec.describe 'User', type: :feature do
     click_on("Update password")
 
     expect(page).to have_content t("controllers.password_reset.update.notice")
+    expect(page).to have_current_path(login_path)
   end
 
   context "token has expired" do

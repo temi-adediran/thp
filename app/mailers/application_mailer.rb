@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'info@thehavennation.org'
   layout 'mailer'
 
   def self.inherited(subclass)

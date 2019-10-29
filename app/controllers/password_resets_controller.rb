@@ -1,5 +1,6 @@
 class PasswordResetsController < ApplicationController
   before_action :set_user, only: [:edit, :update]
+  skip_before_action :ensure_authentication
 
   def new
   end
@@ -22,7 +23,7 @@ class PasswordResetsController < ApplicationController
     if  @user.password_token_invalid?
       redirect_to new_password_reset_path, alert: t("controllers.password_reset.update.alert_expired")
     elsif @user.update_attributes!(password_params)
-      redirect_to edit_user_path(@user), notice: t("controllers.password_reset.update.notice")
+      redirect_to login_path, notice: t("controllers.password_reset.update.notice")
     else
       flash.now[:alert] = t("controllers.password_reset.update.alert")
       render :edit

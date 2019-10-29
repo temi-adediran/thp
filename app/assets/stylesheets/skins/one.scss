@@ -1,15 +1,10 @@
-// Bootstrap variables and mixins
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/mixins";
-
 body {
   background-image: none;
 }
 
 .sidebar {
   background-color: $color-brand-01;
-  background-image: url('../img/img25.jpg');
+  /*background-image: url('../img/img25.jpg');*/
   background-position: center;
   background-size: cover;
   background-blend-mode: luminosity;
