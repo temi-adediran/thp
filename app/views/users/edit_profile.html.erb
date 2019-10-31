@@ -1,0 +1,235 @@
+<% if flash.any? %>
+  <%= render partial: "layouts/flash" %>
+<% end %>
+<%= render partial: "dashboard/sidebar" %>
+
+<div class="content content-page">
+  <%= render partial: "dashboard/navbar" %>
+
+  <div class="col-md-10 mg-t-20">
+    <div class="card card-body pd-sm-40 pd-md-30 pd-xl-y-35 pd-xl-x-40">
+      <!-- <div class="tab-content"> -->
+        <div class="content-body">
+          <h3 class="tx-uppercase tx-semibold tx-color-01 mg-b-0">Edit Profile</h3>
+          <br>
+          <p class="mg-b-20">All information provided will be treated with a high level of confidentiality. Only your chapter governor and leaders have access to view your profile.</p>
+          <%= form_for(@user, url: user_path, method: :patch) do |f| %>
+            <% if @user.errors.any? %>
+              <div class="error-messages">
+                <ul>
+                  <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="mg-t-20 component-section no-code">
+              <div id="wizard3">
+                <h4>Personal Information</h4>
+                <section class="mg-b-30">
+                  <div class="row row-sm">
+                    <div class="form-group col-sm-6">
+                      <label>Full name</label>
+                      <%= f.text_field :first_name, class: "form-control", placeholder: "First name", required: true %>
+                    </div><!-- col -->
+                    <div class="form-group col-sm-6 d-flex align-items-end">
+                      <%= f.text_field :last_name, class: "form-control", placeholder: "Last name", required: true %>
+                    </div><!-- col -->
+
+                    <div class="form-group col-sm-4 col-md-4">
+                      <label>Gender</label>
+                      <%= f.text_field :gender, class: "form-control", placeholder: "Enter your gender", required: true %>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4">
+                      <label>Phone number</label>
+                      <%= f.text_field :phone_no, class: "form-control", placeholder: "Phone number", required: true %>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4">
+                      <!-- <label>Additional phone number</label> -->
+                      <%= f.text_field :additional_phone_no, class: "form-control", placeholder: "Additional phone number" %>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4">
+                      <label>Birthday</label>
+                      <%= f.date_field :date_of_birth, class: "form-control", placeholder: "Birthday", required: true %>
+                      <div id="datepicker3"></div>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4">
+                      <label>Date Born Again</label>
+                      <%= f.date_field :date_born_again, class: "form-control", placeholder: "Date of birth", required: true %>
+                      <div id="datepicker3"></div>
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-4">
+                      <label>Date Joined Christ Embassy</label>
+                      <%= f.date_field :date_joined_christ_embassy, class: "form-control", placeholder: "Date you joined church", required: true %>
+                      <div id="datepicker3"></div>
+                    </div>
+                  </div><!-- form-row -->
+                </section>
+
+                <h4>Domestic Information</h4>
+                <section class="mg-b-30">
+                  <p class="mg-b-20">Please note that as this information changes in future you are required to update your profile accordingly.</p>
+                  <div class="row row-sm">
+                    <div class="form-group col-sm-6">
+                      <label>Client Name</label>
+                      <input type="text" class="form-control" placeholder="Firstname">
+                    </div><!-- col -->
+                    <div class="form-group col-sm-6 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="Lastname">
+                    </div><!-- col -->
+                    <div class="col-12">
+                      <label>Notes</label>
+                      <textarea class="form-control" rows="1" placeholder="Enter some notes"></textarea>
+                    </div><!-- col -->
+                  </div><!-- row -->
+                </section>
+
+                <h4>Academic Qualifications</h4>
+                <section class="mg-b-30">
+                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
+                  <div class="row row-sm">
+                    <div class="form-group col-12">
+                      <input type="text" class="form-control" placeholder="Credit card number">
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" placeholder="Name on card">
+                    </div><!-- col -->
+                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="Exp. date">
+                    </div><!-- col -->
+                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="CVC/CVV">
+                    </div><!-- col -->
+                  </div><!-- row -->
+                </section>
+
+                <h4>Employment Information</h4>
+                <section class="mg-b-30">
+                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
+                  <div class="row row-sm">
+                    <div class="form-group col-12">
+                      <input type="text" class="form-control" placeholder="Credit card number">
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" placeholder="Name on card">
+                    </div><!-- col -->
+                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="Exp. date">
+                    </div><!-- col -->
+                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="CVC/CVV">
+                    </div><!-- col -->
+                  </div><!-- row -->
+                </section>
+
+                <h4>Finances</h4>
+                <section class="mg-b-30">
+                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
+                  <div class="row row-sm">
+                    <div class="form-group col-12">
+                      <input type="text" class="form-control" placeholder="Credit card number">
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" placeholder="Name on card">
+                    </div><!-- col -->
+                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="Exp. date">
+                    </div><!-- col -->
+                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="CVC/CVV">
+                    </div><!-- col -->
+                  </div><!-- row -->
+                </section>
+
+                <h4>Tithes, Seeds and Offerings</h4>
+                <section class="mg-b-30">
+                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
+                  <div class="row row-sm">
+                    <div class="form-group col-12">
+                      <input type="text" class="form-control" placeholder="Credit card number">
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" placeholder="Name on card">
+                    </div><!-- col -->
+                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="Exp. date">
+                    </div><!-- col -->
+                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="CVC/CVV">
+                    </div><!-- col -->
+                  </div><!-- row -->
+                </section>
+
+                <h4>Vision</h4>
+                <section class="mg-b-30">
+                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
+                  <div class="row row-sm">
+                    <div class="form-group col-12">
+                      <input type="text" class="form-control" placeholder="Credit card number">
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" placeholder="Name on card">
+                    </div><!-- col -->
+                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="Exp. date">
+                    </div><!-- col -->
+                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="CVC/CVV">
+                    </div><!-- col -->
+                  </div><!-- row -->
+                </section>
+
+                <h4>Membership Financial Requirements</h4>
+                <section class="mg-b-30">
+                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
+                  <div class="row row-sm">
+                    <div class="form-group col-12">
+                      <input type="text" class="form-control" placeholder="Credit card number">
+                    </div><!-- col -->
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" placeholder="Name on card">
+                    </div><!-- col -->
+                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="Exp. date">
+                    </div><!-- col -->
+                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
+                      <input type="text" class="form-control" placeholder="CVC/CVV">
+                    </div><!-- col -->
+                  </div><!-- row -->
+                </section>
+              </div>
+            </div><!-- component-section -->
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    'use strict'
+
+    $('#wizard3').steps({
+      headerTag: 'h4',
+      bodyTag: 'section',
+      autoFocus: true,
+      titleTemplate: '<span class="number">#index#</span> <span class="title">#title#</span>',
+      stepsOrientation: 1
+    });
+
+    $('#datepicker3').datepicker({
+      showOtherMonths: true,
+      selectOtherMonths: true,
+      changeMonth: true,
+      changeYear: true
+    });
+
+  });
+</script>

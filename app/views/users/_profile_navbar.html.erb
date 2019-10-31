@@ -1,0 +1,42 @@
+<div class="profile-body-header">
+  <div class="nav-wrapper nav-line">
+    <ul class="nav" id="profileTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="projects-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="projects" aria-selected="false">Personal Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="people-tab" data-toggle="tab" href="#people" role="tab" aria-controls="people" aria-selected="false">Membership Information</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Haven Commitments</a>
+      </li>
+    </ul>
+    <div>
+      <%= link_to "Edit Profile", edit_profile_path(current_user), class: "btn btn-outline-warning" %>
+      <!-- <a href="#modal2" class="btn btn-outline-warning" data-toggle="modal">Edit Profile</a> -->
+    </div>
+  </div><!-- nav-wrapper -->
+</div><!-- profile-body-header -->
+
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="exampleModalLabel2">Modal Title</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i data-feather="x"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="mg-b-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-dark">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
