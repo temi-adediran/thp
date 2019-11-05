@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "dashboard#index", as: "dashboard"
   get "profile/:id", to: "users#profile", as: "profile"
   get "edit_profile/:id", to: "users#edit_profile", as: "edit_profile"
-  get "account_settings", to: "users#account_settings", as: "account_settings"
+  get "account_settings/:id", to: "users#account_settings", as: "account_settings"
+  patch "update_account/:id", to: "users#update_account", as: "update_account"
+  patch "update_profile/:id", to: "users#update_profile", as: "update_profile"
 end

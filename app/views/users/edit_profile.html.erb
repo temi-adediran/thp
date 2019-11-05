@@ -13,7 +13,9 @@
           <h3 class="tx-uppercase tx-semibold tx-color-01 mg-b-0">Edit Profile</h3>
           <br>
           <p class="mg-b-20">All information provided will be treated with a high level of confidentiality. Only your chapter governor and leaders have access to view your profile.</p>
-          <%= form_for(@user, url: user_path, method: :patch) do |f| %>
+
+
+          <%= simple_form_for(@user, as: :user, method: :patch, url: update_profile_path) do |f| %>
             <% if @user.errors.any? %>
               <div class="error-messages">
                 <ul>
@@ -27,184 +29,200 @@
             <div class="mg-t-20 component-section no-code">
               <div id="wizard3">
                 <h4>Personal Information</h4>
+                <br>
                 <section class="mg-b-30">
+
+                  <div class="row row-sm">
+                    <div class="form-group col-sm-4 wd-md-50p">
+                      <label for="title">Title</label>
+                      <%= f.input :title, collection: %w[Pst. Dcn. Dcns Bro. Sis.], selected: current_user.title, prompt: "Select title", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                    </div>
+                  </div>
+
                   <div class="row row-sm">
                     <div class="form-group col-sm-6">
-                      <label>Full name</label>
+                      <label>Fullname</label>
                       <%= f.text_field :first_name, class: "form-control", placeholder: "First name", required: true %>
                     </div><!-- col -->
+
                     <div class="form-group col-sm-6 d-flex align-items-end">
                       <%= f.text_field :last_name, class: "form-control", placeholder: "Last name", required: true %>
                     </div><!-- col -->
 
-                    <div class="form-group col-sm-4 col-md-4">
-                      <label>Gender</label>
-                      <%= f.text_field :gender, class: "form-control", placeholder: "Enter your gender", required: true %>
-                    </div>
-
-                    <div class="form-group col-sm-4 col-md-4">
+                    <div class="form-group col-sm-3">
                       <label>Phone number</label>
-                      <%= f.text_field :phone_no, class: "form-control", placeholder: "Phone number", required: true %>
+                      <%= f.text_field :phone_no, class: "form-control", required: true %>
                     </div>
 
-                    <div class="form-group col-sm-4 col-md-4">
-                      <!-- <label>Additional phone number</label> -->
-                      <%= f.text_field :additional_phone_no, class: "form-control", placeholder: "Additional phone number" %>
+                    <div class="form-group col-sm-3">
+                      <label>Additional phone number</label>
+                      <%= f.text_field :additional_phone_no, class: "form-control" %>
                     </div>
 
-                    <div class="form-group col-sm-4 col-md-4">
-                      <label>Birthday</label>
+                    <div class="form-group col-sm-3">
+                      <label>Date of Birth</label>
                       <%= f.date_field :date_of_birth, class: "form-control", placeholder: "Birthday", required: true %>
                       <div id="datepicker3"></div>
                     </div>
 
-                    <div class="form-group col-sm-4 col-md-4">
-                      <label>Date Born Again</label>
-                      <%= f.date_field :date_born_again, class: "form-control", placeholder: "Date of birth", required: true %>
+                    <div class="form-group col-sm-3">
+                      <label for="gender">Gender</label>
+                      <%= f.input :gender, collection: %w[Male Female], prompt: "Select gender", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                      <label>Country</label>
+                      <%= f.country_select(:country, { priority_countries: ["NG", "ZA", "CA", "GB", "US"], selected: "NG", include_blank: 'Select a country' }, { class: 'custom-select' }, label: "Country") %>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                      <label>State</label>
+                      <%= f.text_field :state, class: "form-control", placeholder: "e.g Lagos" %>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                      <label>City</label>
+                      <%= f.text_field :city, class: "form-control", placeholder: "e.g Ikeja" %>
+                    </div>
+
+                    <div class="form-group col-sm-8">
+                      <label>Home address</label>
+                      <%= f.text_field :home_address, class: "form-control", placeholder: "e.g 21/23 Billings Way, Oregun" %>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                      <label>Your Local Church</label>
+                      <%= f.text_field :current_local_church, class: "form-control", placeholder: "e.g CELVZ" %>
+                    </div>
+                    <div class="form-group col-sm-4">
+                      <label for="marital_status">Marital Status</label>
+                      <%= f.input :marital_status, collection: %w[Single Married], selected: current_user.marital_status, label: false, wrapper: false, input_html: { class: "custom-select" } %>
+                    </div>
+                  </div>
+                  <label><b>If Married</b></label>
+                  <br>
+                  <div class="row row-sm">
+                    <div class="form-group col-sm-6">
+                      <label for="name_of_spouse">Name of Spouse</label>
+                      <%= f.text_field :name_of_spouse, class: "form-control" %>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                      <label>Wedding Anniversary</label>
+                      <%= f.date_field :wedding_anniversary, class: "form-control" %>
                       <div id="datepicker3"></div>
                     </div>
 
-                    <div class="form-group col-sm-4 col-md-4">
-                      <label>Date Joined Christ Embassy</label>
-                      <%= f.date_field :date_joined_christ_embassy, class: "form-control", placeholder: "Date you joined church", required: true %>
-                      <div id="datepicker3"></div>
-                    </div>
+                    <%= f.fields_for(:family, f.object.family) do |ff| %>
+                      <div class="form-group col-sm-2">
+                        <label>No of Children</label>
+                        <%= ff.input(:no_of_children, collection: %w[0 1 2 3 4 5 5+], selected: current_user.family.no_of_children, label: false, wrapper: false, input_html: { class: "custom-select" }) %>
+                      </div>
+
+                      <div class="form-group col-sm-4">
+                        <label>Is your spouse in your local church?</label>
+                        <%= ff.input(:spouse_in_christ_embassy, collection: [["Yes", true], ["No", false]], selected: current_user.family.spouse_in_christ_embassy, label: false, wrapper: false, input_html: { class: "custom-select" }) %>
+                      </div>
+
+                      <div class="form-group col-sm-4">
+                        <label>Spouse Care Group</label>
+                        <%= ff.input(:spouse_care_group, label: false, class: "form-control") %>
+                      </div>
+                    <% end %>
+
                   </div><!-- form-row -->
                 </section>
 
-                <h4>Domestic Information</h4>
+                <h4>Membership Information</h4>
+                <br>
                 <section class="mg-b-30">
-                  <p class="mg-b-20">Please note that as this information changes in future you are required to update your profile accordingly.</p>
                   <div class="row row-sm">
-                    <div class="form-group col-sm-6">
-                      <label>Client Name</label>
-                      <input type="text" class="form-control" placeholder="Firstname">
-                    </div><!-- col -->
-                    <div class="form-group col-sm-6 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="Lastname">
-                    </div><!-- col -->
-                    <div class="col-12">
-                      <label>Notes</label>
-                      <textarea class="form-control" rows="1" placeholder="Enter some notes"></textarea>
-                    </div><!-- col -->
-                  </div><!-- row -->
-                </section>
+                    <div class="form-group col-sm-4">
+                      <label for="title">Designation</label>
+                      <%= f.input :designation, collection: %w[President International Director Zonal Director Zonal Secretary Governor Deputy Governor Cell/Leader Member], selected: current_user.designation, prompt: "Select designation", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                    </div>
 
-                <h4>Academic Qualifications</h4>
-                <section class="mg-b-30">
-                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
-                  <div class="row row-sm">
-                    <div class="form-group col-12">
-                      <input type="text" class="form-control" placeholder="Credit card number">
-                    </div><!-- col -->
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" placeholder="Name on card">
-                    </div><!-- col -->
-                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="Exp. date">
-                    </div><!-- col -->
-                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="CVC/CVV">
-                    </div><!-- col -->
+                    <div class="form-group col-sm-4">
+                      <label>Cell</label>
+                      <%= f.text_field :cell, class: "form-control" %>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                      <label>Zone</label>
+                      <%= f.input :zone, collection: %w[A1 A2 A3 A4 A5 B1 B2 C D E1 E2], selected: current_user.zone, prompt: "Select zone", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                      <label>Date You Got Born Again</label>
+                      <%= f.date_field :date_born_again, class: "form-control", placeholder: "e.g 13th March, 1997" %>
+                      <div id="datepicker3"></div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                      <label>Date You Joined Christ Embassy</label>
+                      <%= f.date_field :date_joined_christ_embassy, class: "form-control", placeholder: "e.g 13th March, 1997" %>
+                      <div id="datepicker3"></div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                      <label>Water Baptism</label>
+                      <%= f.input :water_baptized, collection: [["Yes", true], ["No", false]], label: false, class: "form-control", prompt: "Are you Water Baptized?" %>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                      <label>If Yes, When?</label>
+                      <%= f.date_field :date_water_baptized, class: "form-control", placeholder: "e.g 13th March, 1997" %>
+                      <div id="datepicker3"></div>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                      <label>Foundation School</label>
+                      <%= f.input :completed_foundation_school, collection: [["Yes", true], ["No", false]], label: false, class: "form-control", prompt: "Have you completed Foundation School?" %>
+                    </div>
+
+                    <div class="form-group col-sm-6">
+                      <label>If Yes, When?</label>
+                      <%= f.date_field :date_completed_foundation_school, class: "form-control", placeholder: "e.g 13th March, 1997" %>
+                      <div id="datepicker3"></div>
+                    </div>
                   </div><!-- row -->
+
+                  <label><b>Previous Membership</b></label>
+                  <br>
+                  <div class="row row-sm">
+                    <%= f.fields_for(:previous_membership, f.object.previous_membership) do |ff| %>
+                      <div class="form-group col-sm-6">
+                        <label>Have you been registered in The Haven before?</label>
+                        <%= ff.input(:registered, collection: [["Yes", true], ["No", false]], selected: current_user.previous_membership.registered, label: false, wrapper: false, input_html: { class: "custom-select" }) %>
+                      </div>
+
+                      <div class="form-group col-sm-6">
+                        <label for="chapter">Which chapter/cell did you belong to?</label>
+                        <%= ff.input(:chapter, label: false, class: "form-control") %>
+                      </div>
+
+                      <div class="form-group col-sm-6">
+                        <label for="chapter">Cell Leader's Name</label>
+                        <%= ff.input(:cell_leader_name, label: false, class: "form-control") %>
+                      </div>
+
+                      <div class="form-group col-sm-6">
+                        <label for="chapter">Cell Leader's Phone number</label>
+                        <%= ff.input(:cell_leader_phone_no, label: false, class: "form-control") %>
+                      </div>
+                    <% end %>
                 </section>
+                <br>
 
                 <h4>Employment Information</h4>
                 <section class="mg-b-30">
-                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
                   <div class="row row-sm">
-                    <div class="form-group col-12">
-                      <input type="text" class="form-control" placeholder="Credit card number">
-                    </div><!-- col -->
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" placeholder="Name on card">
-                    </div><!-- col -->
-                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="Exp. date">
-                    </div><!-- col -->
-                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="CVC/CVV">
-                    </div><!-- col -->
-                  </div><!-- row -->
-                </section>
 
-                <h4>Finances</h4>
-                <section class="mg-b-30">
-                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
-                  <div class="row row-sm">
-                    <div class="form-group col-12">
-                      <input type="text" class="form-control" placeholder="Credit card number">
-                    </div><!-- col -->
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" placeholder="Name on card">
-                    </div><!-- col -->
-                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="Exp. date">
-                    </div><!-- col -->
-                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="CVC/CVV">
-                    </div><!-- col -->
-                  </div><!-- row -->
-                </section>
-
-                <h4>Tithes, Seeds and Offerings</h4>
-                <section class="mg-b-30">
-                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
-                  <div class="row row-sm">
-                    <div class="form-group col-12">
-                      <input type="text" class="form-control" placeholder="Credit card number">
-                    </div><!-- col -->
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" placeholder="Name on card">
-                    </div><!-- col -->
-                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="Exp. date">
-                    </div><!-- col -->
-                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="CVC/CVV">
-                    </div><!-- col -->
-                  </div><!-- row -->
-                </section>
-
-                <h4>Vision</h4>
-                <section class="mg-b-30">
-                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
-                  <div class="row row-sm">
-                    <div class="form-group col-12">
-                      <input type="text" class="form-control" placeholder="Credit card number">
-                    </div><!-- col -->
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" placeholder="Name on card">
-                    </div><!-- col -->
-                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="Exp. date">
-                    </div><!-- col -->
-                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="CVC/CVV">
-                    </div><!-- col -->
-                  </div><!-- row -->
-                </section>
-
-                <h4>Membership Financial Requirements</h4>
-                <section class="mg-b-30">
-                  <p class="mg-b-20">The next and previous buttons help you to navigate through your content.</p>
-                  <div class="row row-sm">
-                    <div class="form-group col-12">
-                      <input type="text" class="form-control" placeholder="Credit card number">
-                    </div><!-- col -->
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" placeholder="Name on card">
-                    </div><!-- col -->
-                    <div class="col-7 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="Exp. date">
-                    </div><!-- col -->
-                    <div class="col-5 col-sm-3 mg-t-20 mg-sm-t-0 d-flex align-items-end">
-                      <input type="text" class="form-control" placeholder="CVC/CVV">
-                    </div><!-- col -->
                   </div><!-- row -->
                 </section>
               </div>
             </div><!-- component-section -->
+            <%= f.submit "Update profile", class: "btn btn-warning tx-white" %>
           <% end %>
         </div>
       </div>

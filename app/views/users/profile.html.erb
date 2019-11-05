@@ -11,9 +11,8 @@
       <div class="profile-sidebar-header">
         <div class="avatar"><img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt=""></div>
 
-        <h5>Dcns. Abigail Johnson</h5>
-        <p>Zonal Director, Zone P1</p>
-        <span>Bay Area, San Francisco, CA</span>
+        <h5><%= @user.title %> <%= @user.full_name %></h5>
+        <p><%= @user.designation %>, Zone <%= current_user.zone %></p>
       </div><!-- profile-sidebar-header -->
 
       <div class="profile-sidebar-body">
@@ -21,11 +20,11 @@
 
         <label class="content-label">Contact Information</label>
         <ul class="list-unstyled profile-info-list mg-b-0">
-          <li><i data-feather="briefcase"></i> <span class="tx-color-03">Bay Area, San Francisco, CA</span></li>
-          <li><i data-feather="home"></i> <span class="tx-color-03">Westfield, Oakland, CA</span></li>
-          <li><i data-feather="smartphone"></i> <a href="">(+1) 012 345 6789</a></li>
-          <li><i data-feather="phone"></i> <a href="">(+1) 987 654 3201</a></li>
-          <li><i data-feather="mail"></i> <a href="">abigail.johnson@gmail.com</a></li>
+          <li><i data-feather="smartphone"></i><%= @user.phone_no %></li>
+          <li><i data-feather="phone"></i> <a href=""><%= @user.additional_phone_no %></a></li>
+          <li><i data-feather="mail"></i> <a href=""><%= @user.email %></a></li>
+          <li><i data-feather="home"></i> <span class="tx-color-03"><%= @user.address %></span></li>
+          <!-- <li><i data-feather="briefcase"></i> <span class="tx-color-03">Bay Area, San Francisco, CA</span></li> -->
         </ul>
       </div><!-- profile-sidebar-body -->
     </div><!-- profile-sidebar -->

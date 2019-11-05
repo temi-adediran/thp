@@ -2,7 +2,7 @@ class AddProfileInformationToUser < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :first_name, :string
     add_column :users, :last_name, :string
-    add_column :users, :gender, :boolean
+    add_column :users, :gender, :string
     add_column :users, :date_of_birth, :date
     add_column :users, :residential_address, :string
     add_column :users, :phone_no, :string
@@ -18,7 +18,7 @@ class AddProfileInformationToUser < ActiveRecord::Migration[5.2]
     add_column :users, :date_water_baptized, :date
     add_column :users, :completed_foundation_school, :boolean
     add_column :users, :date_completed_foundation_school, :date
-    add_column :users, :family, :jsonb, null: true, default: "{}"
-    add_column :users, :previous_membership, :jsonb, null: true, default: "{}"
+    add_column :users, :family, :jsonb, default: {}
+    add_column :users, :previous_membership, :jsonb, default: {}
   end
 end
