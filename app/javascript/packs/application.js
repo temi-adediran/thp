@@ -1,15 +1,14 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+
+import 'bootstrap/dist/js/bootstrap';
 import "jquery";
-import "popper";
 import 'bootstrap';
-import "@fortawesome";
 import "perfect-scrollbar";
 import "feather-icons";
 import "js-cookie";
-import "chart";
 import "jqvmap";
-import "jquery-steps";
 import "prismjs";
 import "js-cookie";
 import "parsleyjs";
