@@ -118,6 +118,9 @@
     height: 80px;
     overflow-x: auto;
     overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     @include media-breakpoint-up(sm) {
       width: auto;
