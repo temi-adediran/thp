@@ -1,4 +1,4 @@
-
+console.log("Inside calendar js");
 $(function(){
   'use strict'
 

@@ -9,3 +9,7 @@ import "feather-icons";
 import "js-cookie";
 import "chart";
 import "jqvmap";
+import "jquery-steps";
+import "prismjs";
+import "js-cookie";
+import "parsleyjs";

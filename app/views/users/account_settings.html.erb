@@ -9,14 +9,14 @@
   <div class="col-md-8 mg-t-20">
     <div class="card card-body pd-sm-40 pd-md-30 pd-xl-y-35 pd-xl-x-40">
       <div class="tab-content">
-        <h6 class="tx-uppercase tx-semibold tx-color-01 mg-b-0">Change Password</h6>
+        <h6 class="tx-uppercase tx-semibold tx-color-01 mg-b-0">Change Email Address</h6>
         <br>
         <div class="form-settings">
-          <%= form_for(@password_form, url: change_password_path, method: :post) do |f| %>
-            <% if @password_form.errors.any? %>
+          <%= form_for(@account_settings_form, url: update_account_path(current_user), method: :patch) do |f| %>
+            <% if @account_settings_form.errors.any? %>
               <div class="error-messages">
                 <ul>
-                  <% @password_form.errors.full_messages.each do |message| %>
+                  <% @account_settings_form.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                   <% end %>
                 </ul>
@@ -24,12 +24,12 @@
             <% end %>
 
             <div class="form-group">
-              <%= f.password_field :original_password, class: "form-control", placeholder: "Enter your current password" %>
-              <%= f.password_field :new_password, class: "form-control mg-t-5", placeholder: "New password" %>
-              <%= f.password_field :new_password_confirmation, class: "form-control mg-t-5", placeholder: "Confirm new password" %>
+              <%= f.email_field :current_email, class: "form-control", placeholder: "Enter current email address" %>
+              <%= f.email_field :new_email, class: "form-control mg-t-5", placeholder: "New email address" %>
+              <%= f.password_field :password, class: "form-control mg-t-5", placeholder: "Password" %>
             </div>
             <div class="form-group">
-              <%= f.button t("views.users.edit.button"), class: "btn btn-warning tx-white" %>
+              <%= f.button "Update", class: "btn btn-warning tx-white" %>
             </div>
           <% end %>
         </div>
