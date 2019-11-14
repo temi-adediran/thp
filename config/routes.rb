@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :chapters
+    resources :users
+    resources :zones
+
+    root to: "chapters#index"
+  end
+
   root "home#index"
   resources :users, only: [:new, :create, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
