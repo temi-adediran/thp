@@ -1,6 +1,10 @@
 class User < ApplicationRecord
+  rolify
   has_secure_password
   include Store::Attributes
+
+  has_one :chapter, inverse_of: :user
+  has_one :zone, inverse_of: :user
 
   validates :email, presence: true, uniqueness: true, format: {
     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -27,13 +31,13 @@ class User < ApplicationRecord
   store_attributes :previous_employment do
   end
 
-  def full_name
-    first_name + " " + last_name
-  end
+  # def full_name
+  #   first_name + " " + last_name
+  # end
 
-  def address
-    city + ", " + state + ", " + country
-  end
+  # def address
+  #   city + ", " + state + ", " + country
+  # end
 
   def password_token_invalid?
     self.password_reset_sent_at < 6.hours.ago
