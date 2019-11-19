@@ -1,4 +1,5 @@
 class Chapter < ApplicationRecord
   resourcify
-  belongs_to :user, inverse_of: :chapter, optional: true
+  has_many :users, inverse_of: :chapter
+  belongs_to :zone, inverse_of: :chapters
 end

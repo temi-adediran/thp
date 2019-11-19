@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_011226) do
+ActiveRecord::Schema.define(version: 2019_11_19_162204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chapters", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_chapters_on_user_id"
+    t.bigint "zone_id"
+    t.index ["zone_id"], name: "index_chapters_on_zone_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -67,11 +67,13 @@ ActiveRecord::Schema.define(version: 2019_11_11_011226) do
     t.string "home_address"
     t.string "designation"
     t.string "cell"
-    t.string "chapter"
-    t.string "zone"
     t.jsonb "current_employment", default: {}
     t.jsonb "academic_qualifications", default: {}
+    t.bigint "zone_id"
+    t.bigint "chapter_id"
+    t.index ["chapter_id"], name: "index_users_on_chapter_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["zone_id"], name: "index_users_on_zone_id"
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
@@ -84,12 +86,8 @@ ActiveRecord::Schema.define(version: 2019_11_11_011226) do
 
   create_table "zones", force: :cascade do |t|
     t.string "name"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_zones_on_user_id"
   end
 
-  add_foreign_key "chapters", "users"
-  add_foreign_key "zones", "users"
 end

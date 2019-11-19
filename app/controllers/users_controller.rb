@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :profile, :edit_profile, :update_profile]
+  before_action :set_user, only: [:edit, :edit_profile, :update_profile]
   skip_before_action :ensure_authentication, only: [:new, :create]
 
   def new
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      UserMailer.welcome_email(@user).deliver_now
+      send_welcome_email
       redirect_to dashboard_path
     else
       render :new
@@ -32,9 +32,12 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @user = UserPresenter.new(current_user, view_context)
   end
 
   def edit_profile
+    current_user.build_zone
+    current_user.build_chapter
   end
 
   def update_profile
@@ -89,9 +92,7 @@ class UsersController < ApplicationController
       :name_of_spouse,
       :wedding_anniversary,
       :designation,
-      :zone,
       :cell,
-      :chapter,
       :date_born_again,
       :date_joined_christ_embassy,
       :current_local_church,
@@ -99,6 +100,8 @@ class UsersController < ApplicationController
       :date_water_baptized,
       :completed_foundation_school,
       :date_completed_foundation_school,
+      :zone_id,
+      :chapter_id,
       family: {},
       previous_membership: {}
     )
@@ -118,5 +121,9 @@ class UsersController < ApplicationController
       :new_email,
       :password
     )
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(@user).deliver_now
   end
 end

@@ -9,9 +9,18 @@
   <div class="content-body content-body-profile">
     <div class="profile-sidebar">
       <div class="profile-sidebar-header">
-        <div class="avatar"><img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt=""></div>
-        <h5><%= @user.title %> <%= @user.first_name %> <%= @user.last_name %></h5>
-        <p><%= @user.designation %>, Zone <%= current_user.try(:zone).try(:name) %></p>
+        <div class="avatar">
+          <img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt="">
+        </div>
+        <h5>
+          <%= @user.title || "<your title" %>
+          <%= @user.first_name || "<your first name>" %>
+          <%= @user.last_name || "<your last name>" %>
+        </h5>
+        <p>
+          <%= @user.designation || "<your designation>" %>,
+          <%= @user.user_zone %>
+        </p>
       </div><!-- profile-sidebar-header -->
 
       <div class="profile-sidebar-body">
