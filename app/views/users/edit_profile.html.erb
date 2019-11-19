@@ -137,7 +137,7 @@
                 <br>
                 <section class="mg-b-30">
                   <div class="row row-sm">
-                    <div class="form-group col-sm-4">
+                    <div class="form-group col-sm-3">
                       <label for="title">Designation</label>
                       <%= f.input :designation, collection: %w[President International Director Zonal Director Zonal Secretary Governor Deputy Governor Cell/Leader Member], selected: current_user.designation, prompt: "Select designation", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
                     </div>
@@ -147,9 +147,14 @@
                       <%= f.text_field :cell, class: "form-control" %>
                     </div>
 
-                    <div class="form-group col-sm-4">
-                      <label>Zone</label>
-                      <%= f.input :zone, collection: %w[A1 A2 A3 A4 A5 B1 B2 C D E1 E2], selected: current_user.zone, prompt: "Select zone", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                    <div class="form-group col-sm-3">
+                      <label>Chapter</label>
+                      <%= f.association :chapter, label_method: :name, value_method: :id, selected: current_user.chapter, label: false, wrapper: false, input_html: { class: "custom-select" } %>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                      <label for="zone">Zone</label>
+                      <%= f.association :zone, label_method: :name, value_method: :id, selected: @user.zone.id, label: false, wrapper: false, input_html: { class: "custom-select" } %>
                     </div>
 
                     <div class="form-group col-sm-6">

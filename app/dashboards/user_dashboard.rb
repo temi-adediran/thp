@@ -9,10 +9,15 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     roles: Field::HasMany,
-    chapter: Field::String,
-    zone: Field::String,
+    chapter: Field::BelongsTo,
+    zone: Field::BelongsTo,
     id: Field::Number,
     email: Field::String,
+    password_digest: Field::String,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
+    password_reset_token: Field::String,
+    password_reset_sent_at: Field::DateTime,
     first_name: Field::String,
     last_name: Field::String,
     gender: Field::String,
@@ -40,8 +45,6 @@ class UserDashboard < Administrate::BaseDashboard
     home_address: Field::String,
     designation: Field::String,
     cell: Field::String,
-    chapter: Field::String,
-    zone: Field::String,
     current_employment: Field::String.with_options(searchable: false),
     academic_qualifications: Field::String.with_options(searchable: false),
   }.freeze
@@ -52,20 +55,25 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  id
+  roles
   chapter
   zone
-  roles
+  id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  id
+  roles
   chapter
   zone
-  roles
+  id
   email
+  password_digest
+  created_at
+  updated_at
+  password_reset_token
+  password_reset_sent_at
   first_name
   last_name
   gender
@@ -93,8 +101,6 @@ class UserDashboard < Administrate::BaseDashboard
   home_address
   designation
   cell
-  chapter
-  zone
   current_employment
   academic_qualifications
   ].freeze
@@ -107,6 +113,9 @@ class UserDashboard < Administrate::BaseDashboard
   chapter
   zone
   email
+  password_digest
+  password_reset_token
+  password_reset_sent_at
   first_name
   last_name
   gender
@@ -134,8 +143,6 @@ class UserDashboard < Administrate::BaseDashboard
   home_address
   designation
   cell
-  chapter
-  zone
   current_employment
   academic_qualifications
   ].freeze
