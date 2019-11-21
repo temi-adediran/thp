@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   end
 
   namespace :zonal_admin do
-    resources :chapters
-    resources :roles
     resources :users
+    resources :chapters
     resources :zones
 
     root to: "chapters#index"
