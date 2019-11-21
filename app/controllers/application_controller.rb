@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_authentication
-    if current_user.nil?
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.nil?
   end
 end
