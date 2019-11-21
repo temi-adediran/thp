@@ -3,7 +3,7 @@ require "administrate/base_dashboard"
 class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     roles: Field::Select.with_options(
-      collection: %w[chapter_admin zonal_admin international_admin].freeze
+      collection: %w[chapter_admin zonal_admin].freeze
     ),
     chapter: Field::BelongsTo,
     zone: Field::BelongsTo,
@@ -90,7 +90,6 @@ class UserDashboard < Administrate::BaseDashboard
     date_water_baptized
     completed_foundation_school
     date_completed_foundation_school
-    created_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -101,11 +100,6 @@ class UserDashboard < Administrate::BaseDashboard
   ].freeze
 
   # COLLECTION_FILTERS
-  # a hash that defines filters that can be used while searching via the search
-  # field of the dashboard.
-  #
-  # For example to add an option to search for open resources by typing "open:"
-  # in the search field:
   #
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { where(open: true) }
