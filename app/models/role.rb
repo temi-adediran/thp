@@ -1,8 +1,8 @@
 class Role < ApplicationRecord
   ROLES = [
-    :international_admin,
-    :zonal_admin,
-    :chapter_admin
+    "international_admin",
+    "zonal_admin",
+    "chapter_admin"
   ].freeze
 
   scopify

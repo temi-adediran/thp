@@ -63,10 +63,7 @@ class ZoneDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how zones are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(zone)
-  #   "Zone ##{zone.id}"
-  # end
+  def display_resource(zone)
+    zone.name
+  end
 end

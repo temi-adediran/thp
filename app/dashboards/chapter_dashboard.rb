@@ -23,32 +23,23 @@ class ChapterDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  roles
-  users
-  zone
-  id
+    users
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  roles
-  users
-  zone
-  id
-  name
-  created_at
-  updated_at
+    name
+    zone
+    created_at
+    users
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  roles
-  users
-  zone
-  name
+    name
   ].freeze
 
   # COLLECTION_FILTERS
@@ -63,10 +54,7 @@ class ChapterDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how chapters are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(chapter)
-  #   "Chapter ##{chapter.id}"
-  # end
+  def display_resource(chapter)
+    chapter.name
+  end
 end

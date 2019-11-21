@@ -13,9 +13,4 @@ class ApplicationController < ActionController::Base
   def ensure_authentication
     redirect_to root_path if current_user.nil?
   end
-
-  rescue_from CanCan::AccessDenied do |_exception|
-    flash[:error] = t("not_permitted")
-    redirect_to root_path
-  end
 end

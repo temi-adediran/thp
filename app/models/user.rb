@@ -51,4 +51,8 @@ class User < ApplicationRecord
   def send_password_reset_mail
     UserMailer.password_reset(self).deliver_now
   end
+
+  def name
+    "#{first_name} #{last_name}".strip
+  end
 end
