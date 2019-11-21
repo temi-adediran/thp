@@ -1,32 +1,29 @@
 class Ability
-  include CanCan::Ability
+	include CanCan::Ability
 
-  def initialize(user)
-    # Define abilities for the passed in user here. For example:
-    #
-      # user ||= User.new # guest user (not logged in)
-      # if user.admin?
-      #   can :manage, :all
-      # else
-      #   can :read, :all
-      # end
-    #
-    # The first argument to `can` is the action you are giving the user
-    # permission to do.
-    # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on.
-    # If you pass :all it will apply to every resource. Otherwise pass a Ruby
-    # class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the
-    # objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, :published => true
-    #
-    # See the wiki for details:
-    # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
+	def initialize(user)
+		user ||= User.new
+
+		Role::ROLES.each do |role|
+			send("set_abilities_for_#{role}") if user.has_role?(role)
+		end
+
+		def set_abilities_for_chapter_admin
+			can [:read, :update], Chapter, id: Chapter.with_role(:chapter_admin, user).pluck(:id)
+			can :manage, User, chapter: { id: user.chapter_id }
+		end
+
+		def set_abilities_for_zonal_admin
+			can [:read, :update], Zone, id: Zone.with_role(:zonal_admin, user).pluck(:id)
+			can :manage, Chapter, zone: { id: user.zone_id }
+			can [:read, :update], User, zone: { id: user.zone_id }
+			# can :assign_roles, User
+		end
+
+		def set_abilities_for_international_admin
+			can :manage, Zone
+			can :read, User
+			# can :assign_roles, User
+		end
+	end
 end
