@@ -1,16 +1,14 @@
 {
   "name": "thp",
   "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
   },
-  "formation": {
+  "env": {
+    "RAILS_ENV": "production",
+    "RACK_ENV": "production",
+    "RAILS_SERVE_STATIC_FILES": "true",
+    "SENDGRID_PASSWORD": "Faramade1.",
+    "SENDGRID_USERNAME": "Themmy"
   },
-  "addons": [
-    "heroku-postgresql"
-  ],
-  "buildpacks": [
-    {
-      "url": "heroku/ruby",
-      "url" "heroku/nodejs"
-    }
-  ]
+  "addons": ["heroku-postgresql"]
 }
