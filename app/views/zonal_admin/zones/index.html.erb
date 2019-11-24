@@ -58,7 +58,7 @@ It renders the `_table` partial to display details about the resources.
     collection_presenter: page,
     collection_field_name: resource_name,
     page: page,
-    resources: resources,
+    resources: resources.select{ |r| r == @current_user.zone },
     table_title: "page-title"
   ) %>
 

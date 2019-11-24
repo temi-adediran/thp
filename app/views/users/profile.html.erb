@@ -13,12 +13,12 @@
           <img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt="">
         </div>
         <h5>
-          <%= @user.title || "<your title" %>
-          <%= @user.first_name || "<your first name>" %>
-          <%= @user.last_name || "<your last name>" %>
+          <%= @user.title || "<title>" %>
+          <%= @user.first_name || "<first name>" %>
+          <%= @user.last_name || "<last name>" %>
         </h5>
         <p>
-          <%= @user.designation || "<your designation>" %>,
+          <%= @user.designation || "<designation>" %>,
           <%= @user.user_zone %>
         </p>
       </div><!-- profile-sidebar-header -->
@@ -33,7 +33,7 @@
           <li><i data-feather="mail"></i> <a href=""><%= @user.email %></a></li>
           <li><i data-feather="home"></i>
             <span class="tx-color-03">
-              <%= @user.city %>, <%= @user.state %>, <%= @user.country %>
+              <%= @user.city || "<city>" %>, <%= @user.state || "<state>" %>, <%= @user.country || "<country>" %>
             </span>
           </li>
           <!-- <li><i data-feather="briefcase"></i> <span class="tx-color-03">Bay Area, San Francisco, CA</span></li> -->

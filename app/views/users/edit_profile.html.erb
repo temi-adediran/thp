@@ -139,7 +139,7 @@
                   <div class="row row-sm">
                     <div class="form-group col-sm-3">
                       <label for="title">Designation</label>
-                      <%= f.input :designation, collection: %w[President International Director Zonal Director Zonal Secretary Governor Deputy Governor Cell/Leader Member], selected: current_user.designation, prompt: "Select designation", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                      <%= f.input :designation, collection: %w[President International\ Director Zonal\ Director Zonal\ Secretary Deputy\ Zonal\ Secretary Governor Deputy\ Governor Assistant\ Governor Cell\ Leader Member], selected: current_user.designation, prompt: "Select designation", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
                     </div>
 
                     <div class="form-group col-sm-4">
@@ -149,12 +149,12 @@
 
                     <div class="form-group col-sm-3">
                       <label>Chapter</label>
-                      <%= f.association :chapter, label_method: :name, value_method: :id, selected: current_user.chapter.id, prompt: "Select chapter", label: false, wrapper: false, input_html: { class: "custom-select" } %>
+                      <%= f.association :chapter, label_method: :name, value_method: :id, prompt: "Select chapter", label: false, wrapper: false, input_html: { class: "custom-select" } %>
                     </div>
 
                     <div class="form-group col-sm-2">
                       <label for="zone">Zone</label>
-                      <%= f.association :zone, label_method: :name, value_method: :id, selected: @user.zone.id, prompt: "Select zone",  label: false, wrapper: false, input_html: { class: "custom-select" } %>
+                      <%= f.association :zone, label_method: :name, value_method: :id, prompt: "Select zone",  label: false, wrapper: false, input_html: { class: "custom-select" } %>
                     </div>
 
                     <div class="form-group col-sm-6">

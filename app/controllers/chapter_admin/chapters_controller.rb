@@ -9,8 +9,13 @@ module ChapterAdmin
     #   send_foo_updated_email
     # end
 
-    def index
-      redirect_to chapter_admin_chapter_path(current_user.chapter)
+
+    def show
+      return redirect_to chapter_admin_root_path unless requested_resource == current_user.chapter
+
+      render locals: {
+        page: Administrate::Page::Show.new(dashboard, requested_resource),
+      }
     end
 
     def valid_action?(name, resource = resource_class)
