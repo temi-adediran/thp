@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :chapters
     resources :users
     resources :zones
-    resources :roles
 
     root to: "zones#index"
   end

@@ -1,4 +1,8 @@
 
+<% if current_user.has_role?(:international_admin) %>
+  <%= link_to "View International admin page", admin_root_path, class: "btn btn-light mg-l-5" %>
+<% end %>
+
 <% if current_user.has_role?(:zonal_admin, current_user.zone) %>
   <%= link_to "View Zone #{current_user.zone.name} admin page", zonal_admin_root_path, class: "btn btn-light mg-l-5" %>
 <% end %>

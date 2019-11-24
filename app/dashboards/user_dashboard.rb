@@ -3,7 +3,8 @@ require "administrate/base_dashboard"
 class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     roles: Field::Select.with_options(
-      collection: %w[chapter_admin zonal_admin].freeze
+      collection: %w[chapter_admin zonal_admin].freeze,
+      searchable: false
     ),
     chapter: Field::BelongsTo,
     zone: Field::BelongsTo,
@@ -14,7 +15,7 @@ class UserDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     password_reset_token: Field::String,
     password_reset_sent_at: Field::DateTime,
-    name: Field::String,
+    name: Field::String.with_options(searchable: false),
     first_name: Field::String,
     last_name: Field::String,
     gender: Field::String,
