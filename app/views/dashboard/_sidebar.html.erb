@@ -17,13 +17,11 @@
           <li class="nav-sub-item">
             <%= link_to "2019 Giving Records", account_settings_path(current_user), class: "nav-sub-link" %>
           </li>
-<!--           <li class="nav-sub-item"><a href="dashboard-two.html" class="nav-sub-link">Projects &amp; Web Services</a></li>
-          <li class="nav-sub-item"><a href="dashboard-three.html" class="nav-sub-link">Blog &amp; Social Media</a></li> -->
         </ul>
       </li>
 
       <li class="nav-item show">
-        <%= link_to account_settings_path(current_user), class: "nav-link with-sub" do %>
+        <%= link_to dashboard_path, class: "nav-link with-sub" do %>
           <i data-feather="user"></i>
           Events
         <% end %>

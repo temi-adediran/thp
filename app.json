@@ -1,0 +1,16 @@
+{
+  "name": "thp",
+  "scripts": {
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby",
+      "url" "heroku/nodejs"
+    }
+  ]
+}

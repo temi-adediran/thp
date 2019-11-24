@@ -1,6 +1,6 @@
 <% flash.each do |kind, msg| %>
   <% if msg.is_a?(String) %>
-    <div class="flash-message <%= "#{kind}-msg" %>">
+    <div class="alert flash-message <%= "#{kind}-msg" %>">
       <%= msg %>
     </div>
   <% end %>
