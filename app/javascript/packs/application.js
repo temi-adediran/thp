@@ -16,4 +16,3 @@ import '../src/main';
 import '../src/profile';
 import '../src/svg-inline';
 import '../src/vmap.sampledata';
-

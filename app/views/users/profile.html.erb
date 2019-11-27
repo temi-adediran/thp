@@ -11,7 +11,7 @@
       <div class="profile-sidebar-header">
         <div class="avatar"><img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt=""></div>
         <h5><%= @user.title %> <%= @user.first_name %> <%= @user.last_name %></h5>
-        <p><%= @user.designation %>, Zone <%= current_user.zone %></p>
+        <p><%= @user.designation %>, Zone <%= current_user.try(:zone).try(:name) %></p>
       </div><!-- profile-sidebar-header -->
 
       <div class="profile-sidebar-body">
