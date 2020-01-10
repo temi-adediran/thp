@@ -39,4 +39,6 @@ Rails.application.routes.draw do
   get "account_settings/:id", to: "users#account_settings", as: "account_settings"
   patch "update_account/:id", to: "users#update_account", as: "update_account"
   patch "update_profile/:id", to: "users#update_profile", as: "update_profile"
+
+  get "givings", to: "users#givings", as: "givings"
 end

@@ -1,18 +1,13 @@
 <div class="header">
   <div class="header-left">
     <a href="" class="burger-menu"><i data-feather="menu"></i></a>
-
-<!--     <div class="header-search">
-      <i data-feather="search"></i>
-      <input type="search" class="form-control" placeholder="What are you looking for?">
-    </div> -->
   </div>
 
   <div class="header-right">
-    <!-- <a href="" class="header-help-link"><i data-feather="help-circle"></i></a> -->
-    <div>
-        Logged in as <%= current_user.email %>
-    </div>
+<!--     <div class="logged-in">
+      <h6>Logged in as <%= current_user.email %></h6>
+    </div> -->
+
     <div class="dropdown dropdown-notification">
       <a href="" class="dropdown-link new" data-toggle="dropdown"><i data-feather="bell"></i></a>
       <div class="dropdown-menu dropdown-menu-right">
@@ -74,10 +69,22 @@
           </div><!-- media -->
         </div>
         <div class="dropdown-menu-body">
-          <a href="" class="dropdown-item"><i data-feather="user"></i> View Profile</a>
-          <a href="" class="dropdown-item"><i data-feather="edit-2"></i> Edit Profile</a>
-          <a href="" class="dropdown-item"><i data-feather="briefcase"></i> Account Settings</a>
-          <a href="" class="dropdown-item"><i data-feather="shield"></i> Privacy Settings</a>
+          <%= link_to profile_path(current_user), class: "dropdown-item" do %>
+            <i data-feather="user"></i> View Profile
+          <% end %>
+
+          <%= link_to edit_profile_path(current_user), class: "dropdown-item" do %>
+            <i data-feather="edit-2"></i> Edit Profile
+          <% end %>
+
+          <%= link_to account_settings_path(current_user), class: "dropdown-item" do %>
+            <i data-feather="briefcase"></i> Account Settings
+          <% end %>
+
+          <%= link_to edit_user_path(current_user), class: "dropdown-item" do %>
+            <i data-feather="shield"></i> Privacy Settings
+          <% end %>
+
           <% if current_user %>
             <%= link_to logout_path, class: "dropdown-item" do %>
               <i data-feather="log-out"></i> Log Out
