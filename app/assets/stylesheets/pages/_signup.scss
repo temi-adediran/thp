@@ -11,6 +11,10 @@
   height: 100%;
   overflow: hidden;
 
+  @include media-breakpoint-up(xs) {
+    position: static;
+  }
+
   @include media-breakpoint-up(md) {
     width: 50%;
   }

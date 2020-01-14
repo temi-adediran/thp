@@ -8,11 +8,16 @@
   justify-content: flex-end;
   overflow: hidden;
 
+  @include media-breakpoint-up(xs) {
+    position: static;
+    height: unset;
+  }
+
   .svg-bg {
     height: 100%;
     display: none;
 
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(xs) {
       display: block;
       margin-right: 10%;
       transform: translateX(calc(10% + 200px));
@@ -38,6 +43,10 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+
+  @include media-breakpoint-up(xs) {
+    position: static;
+  }
 
   @include media-breakpoint-up(md) {
     width: 50%;
