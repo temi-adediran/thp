@@ -1,7 +1,7 @@
 {
   "name": "thp",
   "scripts": {
-    "postdeploy": "bundle exec rake db:seed"
+    "postdeploy": "bundle exec rails db:migrate"
   },
   "env": {
     "RAILS_ENV": "production",
