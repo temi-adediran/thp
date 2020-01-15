@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_162204) do
+ActiveRecord::Schema.define(version: 2020_01_15_145942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_162204) do
     t.string "phone_no"
     t.string "additional_phone_no"
     t.string "email_address"
-    t.boolean "marital_status"
+    t.string "marital_status"
     t.string "name_of_spouse"
     t.date "wedding_anniversary"
     t.date "date_born_again"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_162204) do
     t.bigint "zone_id"
     t.bigint "chapter_id"
     t.index ["chapter_id"], name: "index_users_on_chapter_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
     t.index ["zone_id"], name: "index_users_on_zone_id"
   end
 

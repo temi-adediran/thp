@@ -4,13 +4,15 @@ require("jquery");
 require("perfect-scrollbar");
 require("chart.js");
 require("flot.curvedlines/curvedLines");
+require("jquery-steps/build/jquery.steps.min.js");
 const feather = require('feather-icons');
 feather.replace();
 
 import 'bootstrap/dist/js/bootstrap';
 import '../src/main';
+import '../src/jquery-steps';
 import '../src/calendar';
-import '../src/chart.chartjs';
+// import '../src/chart.chartjs';
 import '../src/chart.morris';
 import '../src/chart.peity';
 import '../src/chart.sparkline';

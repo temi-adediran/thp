@@ -28,7 +28,7 @@
 
         <label class="content-label">Contact Information</label>
         <ul class="list-unstyled profile-info-list mg-b-0">
-          <li><i data-feather="smartphone"></i><%= @user.phone_no %></li>
+          <li><i data-feather="smartphone"></i><%= @user.phone_no || "<phone no>" %></li>
           <!-- <li><i data-feather="phone"></i> <a href=""><%= @user.additional_phone_no %></a></li> -->
           <li><i data-feather="mail"></i> <a href=""><%= @user.email %></a></li>
           <li><i data-feather="home"></i>
