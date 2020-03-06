@@ -133,8 +133,8 @@
         }
 
         .number {
-          border-color: $color-brand-04;
-          background-color: $color-brand-04;
+          border-color: $color-brand-05;
+          background-color: $color-brand-05;
           color: #fff;
         }
       }
@@ -189,14 +189,14 @@
       display: flex;
       justify-content: space-between;
 
-      > li:last-child a { background-color: $color-brand-04; }
+      > li:last-child a { background-color: $color-brand-05; }
     }
 
     a,
     a:hover,
     a:active {
       display: block;
-      background-color: $color-brand-04;
+      background-color: $color-brand-05;
       padding: 9px 20px;
       line-height: 1.539;
       color: #fff;
@@ -358,7 +358,7 @@
     }
 
     .current a { background-color: $color-ui-04; }
-    .done a { background-color: $color-brand-04; }
+    .done a { background-color: $color-brand-05; }
 
     .disabled a {
       &,&:hover,&:focus {

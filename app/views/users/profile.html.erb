@@ -9,9 +9,18 @@
   <div class="content-body content-body-profile">
     <div class="profile-sidebar">
       <div class="profile-sidebar-header">
-        <div class="avatar"><img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt=""></div>
-        <h5><%= @user.title %> <%= @user.first_name %> <%= @user.last_name %></h5>
-        <p><%= @user.designation %>, Zone <%= current_user.try(:zone).try(:name) %></p>
+        <div class="avatar">
+          <img src="https://via.placeholder.com/500/637382/fff" class="rounded-circle" alt="">
+        </div>
+        <h5>
+          <%= @user.title || "<title>" %>
+          <%= @user.first_name || "<first name>" %>
+          <%= @user.last_name || "<last name>" %>
+        </h5>
+        <p>
+          <%= @user.designation || "<designation>" %>,
+          <%= @user.user_zone %>
+        </p>
       </div><!-- profile-sidebar-header -->
 
       <div class="profile-sidebar-body">
@@ -19,10 +28,14 @@
 
         <label class="content-label">Contact Information</label>
         <ul class="list-unstyled profile-info-list mg-b-0">
-          <li><i data-feather="smartphone"></i><%= @user.phone_no %></li>
+          <li><i data-feather="smartphone"></i><%= @user.phone_no || "<phone no>" %></li>
           <!-- <li><i data-feather="phone"></i> <a href=""><%= @user.additional_phone_no %></a></li> -->
           <li><i data-feather="mail"></i> <a href=""><%= @user.email %></a></li>
-          <li><i data-feather="home"></i> <span class="tx-color-03"><%= @user.address %></span></li>
+          <li><i data-feather="home"></i>
+            <span class="tx-color-03">
+              <%= @user.city || "<city>" %>, <%= @user.state || "<state>" %>, <%= @user.country || "<country>" %>
+            </span>
+          </li>
           <!-- <li><i data-feather="briefcase"></i> <span class="tx-color-03">Bay Area, San Francisco, CA</span></li> -->
         </ul>
       </div><!-- profile-sidebar-body -->

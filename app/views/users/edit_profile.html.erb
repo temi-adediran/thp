@@ -26,12 +26,12 @@
               </div>
             <% end %>
 
-            <div class="mg-t-20 component-section no-code">
-              <div id="wizard3">
-                <h4>Personal Information</h4>
+            <br>
+            <!-- <div class="mg-t-20 component-section no-code"> -->
+              <div id="wizard1">
+                <h3>Personal Information</h3>
                 <br>
                 <section class="mg-b-30">
-
                   <div class="row row-sm">
                     <div class="form-group col-sm-4 wd-md-50p">
                       <label for="title">Title</label>
@@ -133,13 +133,13 @@
                   </div><!-- form-row -->
                 </section>
 
-                <h4>Membership Information</h4>
+                <h3>Membership Information</h3>
                 <br>
                 <section class="mg-b-30">
                   <div class="row row-sm">
-                    <div class="form-group col-sm-4">
+                    <div class="form-group col-sm-3">
                       <label for="title">Designation</label>
-                      <%= f.input :designation, collection: %w[President International Director Zonal Director Zonal Secretary Governor Deputy Governor Cell/Leader Member], selected: current_user.designation, prompt: "Select designation", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                      <%= f.input :designation, collection: %w[President International\ Director Zonal\ Director Zonal\ Secretary Deputy\ Zonal\ Secretary Governor Deputy\ Governor Assistant\ Governor Cell\ Leader Member], selected: current_user.designation, prompt: "Select designation", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
                     </div>
 
                     <div class="form-group col-sm-4">
@@ -147,9 +147,14 @@
                       <%= f.text_field :cell, class: "form-control" %>
                     </div>
 
-                    <div class="form-group col-sm-4">
-                      <label>Zone</label>
-                      <%= f.input :zone, collection: %w[A1 A2 A3 A4 A5 B1 B2 C D E1 E2], selected: current_user.zone, prompt: "Select zone", label: false, wrapper: false, required: true, input_html: { class: "custom-select" } %>
+                    <div class="form-group col-sm-3">
+                      <label>Chapter</label>
+                      <%= f.association :chapter, label_method: :name, value_method: :id, prompt: "Select chapter", label: false, wrapper: false, input_html: { class: "custom-select" } %>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                      <label for="zone">Zone</label>
+                      <%= f.association :zone, label_method: :name, value_method: :id, prompt: "Select zone",  label: false, wrapper: false, input_html: { class: "custom-select" } %>
                     </div>
 
                     <div class="form-group col-sm-6">
@@ -214,15 +219,14 @@
                 </section>
                 <br>
 
-                <h4>Employment Information</h4>
+                <h3>Employment Information</h3>
                 <section class="mg-b-30">
                   <div class="row row-sm">
 
                   </div><!-- row -->
                 </section>
               </div>
-            </div><!-- component-section -->
-            <%= f.submit "Update profile", class: "btn btn-warning tx-white" %>
+            <!-- </div>component-section -->
           <% end %>
         </div>
       </div>

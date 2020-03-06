@@ -4,21 +4,24 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
-gem 'pg'
+gem 'rails', '~> 6.0.1'
+
+gem "administrate"
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'cancancan'
 gem 'country_select', :github => 'temi-adediran/country_select'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'pg'
 gem 'puma', '~> 3.11'
 # gem 'redis', '~> 4.0'
+gem 'rolify'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.x'
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

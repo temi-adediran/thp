@@ -9,34 +9,32 @@
   <div id="dpSidebarBody" class="sidebar-body">
     <ul class="nav nav-sidebar">
       <li class="nav-item show">
-        <%= link_to dashboard_path, class: "nav-link with-sub active" do %>
+        <%= link_to dashboard_path, class: "nav-link with-sub #{'active' if current_page?(dashboard_path) || current_page?(givings_path)}" do %>
           <i data-feather="box"></i> Dashboard</a>
         <% end %>
 
         <ul class="nav nav-sub">
           <li class="nav-sub-item">
-            <%= link_to "2019 Giving Records", account_settings_path(current_user), class: "nav-sub-link" %>
+            <%= link_to "2019 Giving Records", givings_path, class: "nav-sub-link #{'active' if current_page?(givings_path)}" %>
           </li>
-<!--           <li class="nav-sub-item"><a href="dashboard-two.html" class="nav-sub-link">Projects &amp; Web Services</a></li>
-          <li class="nav-sub-item"><a href="dashboard-three.html" class="nav-sub-link">Blog &amp; Social Media</a></li> -->
         </ul>
       </li>
 
-      <li class="nav-item show">
-        <%= link_to account_settings_path(current_user), class: "nav-link with-sub" do %>
-          <i data-feather="user"></i>
-          Events
-        <% end %>
-      </li>
 
       <li class="nav-item show">
-        <%= link_to profile_path(current_user), class: "nav-link with-sub" do %>
+        <%= link_to profile_path(current_user), class: "nav-link with-sub #{'active' if current_page?(profile_path(current_user)) || current_page?(account_settings_path(current_user)) || current_page?(edit_user_path(current_user))}" do %>
           <i data-feather="user"></i>
           Profile
         <% end %>
+
         <nav class="nav nav-sub">
-          <li><%= link_to "Account Settings", account_settings_path(current_user), class: "nav-sub-link" %></li>
-          <li><%= link_to "Password Settings", edit_user_path(current_user), class: "nav-sub-link" %></li>
+          <li class="nav-sub-item">
+            <%= link_to "Account Settings", account_settings_path(current_user), class: "nav-sub-link #{'active' if current_page?(account_settings_path(current_user))}" %>
+          </li>
+
+          <li class="nav-sub-item">
+            <%= link_to "Password Settings", edit_user_path(current_user), class: "nav-sub-link #{'active' if current_page?(edit_user_path(current_user))}" %>
+          </li>
         </nav>
       </li>
 
