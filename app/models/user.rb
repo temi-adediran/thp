@@ -1,6 +1,12 @@
 class User < ApplicationRecord
+  rolify
   has_secure_password
   include Store::Attributes
+
+  belongs_to :chapter, inverse_of: :users, optional: true
+  belongs_to :zone, inverse_of: :users, optional: true
+  accepts_nested_attributes_for :zone
+  accepts_nested_attributes_for :chapter
 
   validates :email, presence: true, uniqueness: true, format: {
     with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -27,14 +33,6 @@ class User < ApplicationRecord
   store_attributes :previous_employment do
   end
 
-  def full_name
-    first_name + " " + last_name
-  end
-
-  def address
-    city + ", " + state + ", " + country
-  end
-
   def password_token_invalid?
     self.password_reset_sent_at < 6.hours.ago
   end
@@ -52,5 +50,9 @@ class User < ApplicationRecord
 
   def send_password_reset_mail
     UserMailer.password_reset(self).deliver_now
+  end
+
+  def name
+    "#{first_name} #{last_name}".strip
   end
 end

@@ -1,4 +1,5 @@
 en:
+  not_permitted: You are not permitted to view this page
   controllers:
     users:
       create:

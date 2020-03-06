@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :zones
+
+    root to: "zones#index"
+  end
+
+  namespace :zonal_admin do
+    resources :users
+    resources :chapters
+    resources :zones
+
+    root to: "chapters#index"
+  end
+
+  namespace :chapter_admin do
+    resources :chapters
+    resources :users
+    root to: "users#index"
+  end
+
+
   root "home#index"
   resources :users, only: [:new, :create, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
@@ -17,4 +39,6 @@ Rails.application.routes.draw do
   get "account_settings/:id", to: "users#account_settings", as: "account_settings"
   patch "update_account/:id", to: "users#update_account", as: "update_account"
   patch "update_profile/:id", to: "users#update_profile", as: "update_profile"
+
+  get "givings", to: "users#givings", as: "givings"
 end
