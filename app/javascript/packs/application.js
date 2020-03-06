@@ -1,19 +1,29 @@
 require("@rails/ujs").start();
 require("@rails/activestorage").start();
-require("jquery-ui");
+require("jquery");
+require("perfect-scrollbar");
 require("chart.js");
 require("flot.curvedlines/curvedLines");
+require("jquery-steps/build/jquery.steps.min.js");
+require("datatables.net/js/jquery.dataTables.min.js");
+require("datatables.net-dt/js/dataTables.dataTables.min.js");
+require("datatables.net-responsive/js/dataTables.responsive.min.js");
+require("datatables.net-responsive-dt/js/responsive.dataTables.min.js");
+require("select2/js/select2.min.js");
+const feather = require('feather-icons');
+feather.replace();
 
 import 'bootstrap/dist/js/bootstrap';
+import '../src/main';
+import '../src/jquery-steps';
+import '../src/datatables';
 import '../src/calendar';
-import '../src/chart.chartjs';
+// import '../src/chart.chartjs';
 import '../src/chart.morris';
 import '../src/chart.peity';
 import '../src/chart.sparkline';
 import '../src/dashboard-one';
 import '../src/flot.sampledata';
-import '../src/main';
 import '../src/profile';
 import '../src/svg-inline';
 import '../src/vmap.sampledata';
-
